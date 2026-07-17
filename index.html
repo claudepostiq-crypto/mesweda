@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#F4F3EF;}
+  *{box-sizing:border-box;}
+  body{font-family:'Tajawal',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:#2856FF;text-decoration:none;}
+  a:hover{color:#1b3fd1;}
+  input{font-family:inherit;}
+  @keyframes msw-rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes msw-caret{0%,100%{opacity:.25;}50%{opacity:1;}}
+  @keyframes msw-breathe{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.06);opacity:.8;}}
+</style>
+</helmet>
+<div dir="rtl" style="position:fixed;inset:0;overflow:hidden;background:#F4F3EF;">
+
+  <!-- PERSISTENT VIDEO LAYER (dim, behind cream, full-bleed) -->
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;">
+    <video ref="{{ videoRef }}" src="assets/opening.mp4" autoplay muted loop playsinline preload="auto"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.14;"></video>
+  </div>
+
+  <!-- LOGIN / HOME -->
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;z-index:1;">
+    <div style="width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+      <img src="assets/post-logo-transparent.png" alt="Post" style="height:38px;width:auto;margin-bottom:56px;opacity:.92;animation:msw-rise .7s .05s both;">
+
+      <img src="assets/musawwadah-wordmark.png" alt="مسودة" style="height:92px;width:auto;margin:4px 0;animation:msw-rise .7s .12s both;">
+
+      <p style="margin:20px 0 0;font-weight:400;font-size:17px;line-height:1.7;color:rgba(13,17,23,.5);animation:msw-rise .7s .2s both;">قبل أن ترى النور… كانت مسودة.</p>
+
+      <div style="display:flex;flex-direction:row;gap:12px;margin-top:56px;direction:ltr;animation:msw-rise .7s .28s both;">
+        <sc-for list="{{ boxes }}" as="box" hint-placeholder-count="6">
+          <input
+            type="text" inputmode="numeric" maxlength="1" aria-label="خانة الرقم السري"
+            value="{{ box.value }}" ref="{{ box.ref }}" onChange="{{ box.onChange }}" onKeyDown="{{ box.onKeyDown }}" onFocus="{{ box.onFocus }}"
+            style="width:56px;height:68px;text-align:center;font-size:28px;font-weight:600;color:#0D1117;background:#FFFFFF;border:1px solid rgba(13,17,23,.14);border-radius:16px;outline:none;transition:border-color .2s,box-shadow .2s,transform .12s;caret-color:#2856FF;"
+            style-focus="border-color:#2856FF;box-shadow:0 0 0 4px rgba(40,86,255,.12);transform:translateY(-2px);">
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:18px 0 0;font-size:14px;font-weight:500;color:#c0392b;animation:msw-rise .35s both;">الرقم السري غير صحيح، حاول مرة أخرى.</p>
+      </sc-if>
+
+      <button onClick="{{ submit }}" disabled="{{ submitDisabled }}"
+        style="margin-top:32px;height:52px;padding:0 8px;font-family:'Tajawal',sans-serif;font-size:18px;font-weight:700;color:{{ btnColor }};background:transparent;border:none;cursor:pointer;transition:color .2s,opacity .2s,transform .12s;letter-spacing:.02em;animation:msw-rise .7s .34s both;"
+        style-hover="transform:translateY(-1px);" style-active="transform:translateY(0);">
+        {{ btnLabel }}
+      </button>
+
+    </div>
+  </div>
+
+  <!-- WELCOME (after login) -->
+  <sc-if value="{{ showWelcome }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:#F4F3EF;display:flex;flex-direction:column;animation:msw-rise .6s both;">
+      <header style="display:flex;align-items:center;justify-content:space-between;padding:22px 40px;border-bottom:1px solid rgba(13,17,23,.07);background:rgba(244,243,239,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#0D1117;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;">ن</div>
+          <div style="text-align:right;">
+            <div style="font-weight:700;font-size:15px;color:#0D1117;">نـورة للتجارة</div>
+            <div style="font-weight:400;font-size:12px;color:rgba(13,17,23,.4);">آخر تحديث · اليوم ١٠:٤٢ ص</div>
+          </div>
+        </div>
+        <img src="assets/post-logo-transparent.png" alt="Post" style="height:24px;opacity:.85;">
+      </header>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;">
+        <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(40,86,255,.18),transparent 70%);display:flex;align-items:center;justify-content:center;margin-bottom:28px;animation:msw-breathe 3s ease-in-out infinite;">
+          <div style="width:14px;height:14px;border-radius:50%;background:#2856FF;"></div>
+        </div>
+        <h2 style="margin:0;font-weight:800;font-size:40px;color:#0D1117;letter-spacing:-.01em;">أهلاً بك في مساحتك</h2>
+        <p style="margin:16px 0 0;max-width:440px;font-size:16px;line-height:1.8;color:rgba(13,17,23,.5);">هنا تجد أفكارنا، اقتراحاتنا، دراساتنا، وعروضنا — معروضة لك بهدوء ووضوح. لوحة الاقتراحات والدراسات والعروض جاهزة للبناء في الخطوة القادمة.</p>
+        <button onClick="{{ backHome }}" style="margin-top:32px;height:48px;padding:0 28px;font-family:'Tajawal',sans-serif;font-size:15px;font-weight:600;color:#2856FF;background:transparent;border:1px solid rgba(40,86,255,.3);border-radius:14px;cursor:pointer;transition:background .2s;" style-hover="background:rgba(40,86,255,.06);">خروج</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2856FF&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;}}">
+class Component extends DCLogic {
+  state = {
+    muted: true,
+    digits: ['','','','','',''],
+    error: false,
+    submitting: false,
+    showWelcome: false,
+  };
+
+  inputs = [];
+
+  get codeMap(){
+    return this.props.codeMap ?? {
+      // EDIT THESE: paste the Claude published URLs
+      '140726': 'https://PASTE-OCEAN-HOME-CLAUDE-URL',
+      '150726': 'https://PASTE-MARKETING-STRATEGY-CLAUDE-URL',
+    };
+  }
+  get accent(){ return this.props.accentColor ?? '#2856FF'; }
+
+  componentDidMount(){
+    setTimeout(() => this.inputs[0] && this.inputs[0].focus(), 400);
+  }
+
+  setDigit(i, raw){
+    const v = (raw || '').replace(/\D/g,'').slice(-1);
+    const digits = this.state.digits.slice();
+    digits[i] = v;
+    this.setState({ digits, error: false });
+    if (v && i < 5 && this.inputs[i+1]) this.inputs[i+1].focus();
+  }
+  onKey(i, e){
+    if (e.key === 'Backspace' && !this.state.digits[i] && i > 0){
+      e.preventDefault();
+      const digits = this.state.digits.slice();
+      digits[i-1] = '';
+      this.setState({ digits });
+      if (this.inputs[i-1]) this.inputs[i-1].focus();
+    } else if (e.key === 'Enter'){
+      this.submit();
+    }
+  }
+
+  submit = () => {
+    const pin = this.state.digits.join('');
+    if (pin.length < 6 || this.state.submitting) return;
+    const dest = this.codeMap[pin];
+    if (dest){
+      this.setState({ submitting: true });
+      setTimeout(() => { window.location.href = dest; }, 500);
+    } else {
+      this.setState({ error: true, digits: ['','','','','',''] });
+      setTimeout(() => this.inputs[0] && this.inputs[0].focus(), 40);
+    }
+  };
+
+  backHome = () => this.setState({ showWelcome: false, submitting: false, digits: ['','','','','',''], error: false });
+
+  renderVals(){
+    const filled = this.state.digits.join('').length === 6;
+    const boxes = this.state.digits.map((val, i) => ({
+      value: val,
+      ref: el => { this.inputs[i] = el; },
+      onChange: e => this.setDigit(i, e.target.value),
+      onKeyDown: e => this.onKey(i, e),
+      onFocus: e => e.target.select(),
+    }));
+    return {
+      videoRef: el => { this.videoRefEl = el; if (el){ el.muted = true; el.loop = true; const p = el.play(); if (p && p.catch) p.catch(()=>{}); } },
+      boxes,
+      error: this.state.error,
+      submit: this.submit,
+      submitDisabled: !filled || this.state.submitting,
+      btnColor: (!filled || this.state.submitting) ? 'rgba(40,86,255,.4)' : this.accent,
+      btnLabel: this.state.submitting ? 'جارٍ الدخول…' : 'دخول',
+      showWelcome: this.state.showWelcome,
+      backHome: this.backHome,
+    };
+  }
+}
+</script>
+</body>
+</html>
