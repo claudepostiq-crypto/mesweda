@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#E7EDFD}
+body{font-family:'TT Commons Pro','IBM Plex Sans Arabic',Figtree,sans-serif;color:#0A1533}
+a{color:#0433B8;text-decoration:none}a:hover{color:#2F55E6}
+*{box-sizing:border-box}
+::selection{background:#A9C4F7}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div dir="rtl" lang="ar" style="font-family:'IBM Plex Sans Arabic','TT Commons Pro',Figtree,sans-serif;background:#E7EDFD;min-height:100vh">
+
+<nav data-screen-label="التنقل" style="position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:28px;padding:14px 40px;background:rgba(255,255,255,0.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(4,51,184,0.10)">
+  <a href="Ocean Iraq Home.dc.html" style="flex:none;display:flex"><img src="brand/logo-color.png" alt="المحيط ocean" style="height:44px"></a>
+  <div style="display:{{ navLinksDisp }};align-items:center;gap:22px;margin-inline-start:16px;font-size:15px;font-weight:500;color:#0A1533">
+    <a href="Ocean Iraq Home.dc.html" style="color:inherit">الرئيسية</a>
+    <a href="Ocean Iraq Knowledge Hub.dc.html" style="color:inherit">دليل المحيط</a>
+    <a href="#explorers" style="color:#0433B8;font-weight:700">مستكشفو المحيط</a>
+    <a href="Ocean Iraq Contact.dc.html" style="color:inherit">تواصل معنا</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;margin-inline-start:auto">
+    <a href="Ocean Iraq Contact.dc.html#callback" style="background:#0433B8;color:#fff;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700">احجز مكالمة</a>
+    <button onClick="{{ openMenu }}" aria-label="القائمة" style="display:{{ burgerDisp }};flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px"><span style="width:22px;height:2.5px;background:#0A1533;border-radius:2px"></span><span style="width:22px;height:2.5px;background:#0A1533;border-radius:2px"></span><span style="width:22px;height:2.5px;background:#0A1533;border-radius:2px"></span></button>
+  </div>
+</nav>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:95;background:rgba(10,21,51,0.45);backdrop-filter:blur(6px)" onClick="{{ closeMenu }}">
+    <div dir="rtl" style="position:absolute;top:0;bottom:0;inset-inline-start:0;width:min(320px,85vw);background:#FFFFFF;padding:26px 24px;display:flex;flex-direction:column;gap:4px;overflow:auto;box-shadow:0 0 60px rgba(10,21,51,0.3)" onClick="{{ stopMenuEvt }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+        <img src="brand/dolphin-color.png" alt="المحيط" style="height:38px">
+        <button onClick="{{ closeMenu }}" aria-label="إغلاق" style="background:#E7EDFD;border:none;border-radius:999px;width:36px;height:36px;font-size:15px;cursor:pointer;color:#0433B8;font-weight:700">✕</button>
+      </div>
+      <a href="Ocean Iraq Home.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">الرئيسية</a>
+      <a href="Ocean Iraq Knowledge Hub.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">دليل المحيط</a>
+      <a href="Ocean Iraq Home.dc.html#services" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">خدماتنا</a>
+      <a href="Ocean Iraq Home.dc.html#industries" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">القطاعات</a>
+      <a href="Ocean Iraq About.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">عن المحيط</a>
+      <a href="Ocean Iraq Explorers.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">مستكشفو المحيط</a>
+      <a href="Ocean Iraq Contact.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">تواصل معنا</a>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+        <a href="Ocean Iraq Contact.dc.html#callback" style="text-align:center;background:#0433B8;color:#fff;border-radius:999px;padding:14px;font-size:15px;font-weight:700">احجز مكالمة</a>
+        <a href="tel:+9640000000000" style="text-align:center;border:1.5px solid #A9C4F7;color:#0433B8;border-radius:999px;padding:13px;font-size:15px;font-weight:700">اتصل الآن</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- hero -->
+<header id="explorers" data-screen-label="مستكشفو المحيط" style="background:#0433B8;position:relative;overflow:hidden;padding:90px 40px 110px;text-align:center">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('brand/pattern-sea.png');background-repeat:no-repeat;background-size:cover;background-position:center top;opacity:0.14"></div>
+  <div style="position:relative;max-width:800px;margin:0 auto">
+    <img src="brand/dolphin-white.png" alt="" style="height:96px;animation:bob 4s ease-in-out infinite">
+    <h1 style="margin:22px 0 0;font-size:clamp(38px,5vw,64px);font-weight:700;color:#FFFFFF">مستكشفو المحيط</h1>
+    <p dir="ltr" style="margin:10px 0 0;font-size:16px;color:#A9C4F7;font-weight:600;font-family:Figtree,sans-serif">Ocean Explorers</p>
+    <p style="margin:20px auto 0;max-width:560px;font-size:17.5px;line-height:2;color:#E7EDFD">كيف تصل لعبتك المفضلة من مصنعها إلى بيتك؟ رحلة ممتعة عبر البحار والموانئ والحاويات، للمستكشفين الصغار وأهاليهم ومعلميهم.</p>
+  </div>
+</header>
+
+<main style="max-width:1240px;margin:0 auto;padding:70px 40px 90px;display:flex;flex-direction:column;gap:70px">
+
+  <!-- journey of a package -->
+  <section data-screen-label="رحلة الطرد">
+    <h2 style="margin:0 0 8px;font-size:clamp(28px,3vw,42px);font-weight:700;text-align:center">رحلة الطرد إلى العراق</h2>
+    <p style="margin:0 auto 40px;max-width:520px;text-align:center;font-size:15.5px;line-height:1.9;color:#3a4664">اضغط على كل محطة لتعرف ماذا يحدث فيها!</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+      <sc-for list="{{ stops }}" as="s" hint-placeholder-count="5">
+        <button onClick="{{ s.pick }}" style="background:{{ s.bg }};color:{{ s.fg }};border:2px solid #A9C4F7;border-radius:24px;padding:24px 16px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;gap:10px;align-items:center;transition:transform .2s" style-hover="transform:translateY(-4px)">
+          <span style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.9);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#0433B8">{{ s.n }}</span>
+          <span style="font-size:16px;font-weight:700">{{ s.t }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="margin-top:20px;background:#FFFFFF;border:2px solid #A9C4F7;border-radius:24px;padding:28px 32px;display:flex;gap:20px;align-items:center">
+      <img src="brand/dolphin-color.png" alt="" style="height:56px;flex:none">
+      <p style="margin:0;font-size:16.5px;line-height:2;color:#26314f"><strong style="color:#0433B8">{{ activeTitle }}:</strong> {{ activeDesc }}</p>
+    </div>
+  </section>
+
+  <!-- quiz -->
+  <section data-screen-label="اختبار قصير" style="background:#FFFFFF;border:2px solid #A9C4F7;border-radius:28px;padding:40px">
+    <h2 style="margin:0 0 6px;font-size:clamp(24px,2.6vw,34px);font-weight:700">اختبر معلوماتك!</h2>
+    <p style="margin:0 0 24px;font-size:14.5px;color:#3a4664">سؤال {{ qNum }} من {{ qTotal }} · النقاط: {{ score }}</p>
+    <p style="margin:0 0 18px;font-size:19px;font-weight:700;line-height:1.7">{{ question }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+      <sc-for list="{{ answers }}" as="a" hint-placeholder-count="3">
+        <button onClick="{{ a.pick }}" style="background:{{ a.bg }};color:{{ a.fg }};border:2px solid {{ a.border }};border-radius:999px;padding:15px 24px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .15s" style-hover="transform:scale(1.02)">{{ a.label }}</button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ feedback }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <span style="font-size:16px;font-weight:700;color:{{ feedbackColor }}">{{ feedback }}</span>
+        <button onClick="{{ nextQ }}" style="background:#0433B8;color:#fff;border:none;border-radius:999px;padding:12px 28px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit" style-hover="background:#2F55E6">{{ nextLabel }}</button>
+      </div>
+    </sc-if>
+  </section>
+
+  <!-- facts -->
+  <section data-screen-label="حقائق">
+    <h2 style="margin:0 0 26px;font-size:clamp(24px,2.6vw,34px);font-weight:700;text-align:center">هل تعلم؟</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+      <sc-for list="{{ facts }}" as="f" hint-placeholder-count="4">
+        <div style="background:#FFFFFF;border:2px solid #A9C4F7;border-radius:24px;padding:26px;display:flex;flex-direction:column;gap:10px;text-align:center;align-items:center">
+          <span style="font-size:30px;font-weight:800;color:#0433B8">{{ f.big }}</span>
+          <span style="font-size:14.5px;line-height:1.9;color:#26314f">{{ f.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  </section>
+</main>
+
+<footer style="background:#0A1533;padding:50px 40px;color:#E7EDFD">
+  <div style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+    <a href="Ocean Iraq Home.dc.html"><img src="brand/logo-white.png" alt="المحيط ocean" style="height:48px"></a>
+    <span style="font-size:12.5px;color:#5B79E8">© 2026 المحيط Ocean Iraq. نموذج أولي، المحتوى بانتظار التحقق.</span>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { stop: 0, qi: 0, picked: -1, score: 0, menuOpen: false, isMobile: false };
+  stops = [
+    { t: 'المصنع', d: 'تُصنع البضاعة وتُغلّف في صناديق كرتونية، ثم تُرتّب فوق ألواح خشبية تسمى الطبليات لتسهل حركتها.' },
+    { t: 'ميناء المنشأ', d: 'تُوضع الصناديق داخل حاوية فولاذية عملاقة، وترفعها رافعة ضخمة إلى سفينة قد تحمل آلاف الحاويات!' },
+    { t: 'عرض البحر', d: 'تبحر السفينة أسابيع عبر المحيطات والقنوات. يتتبع القبطان الطقس والخرائط، تمامًا كما تتتبع أنت طردك.' },
+    { t: 'ميناء أم قصر', d: 'أكبر ميناء في العراق! تنزل الحاوية، ويفحصها موظفو الجمارك للتأكد أن كل شيء سليم ونظامي.' },
+    { t: 'إلى بيتك', d: 'تنقل شاحنة الحاوية إلى المستودع، ثم يوصل سائق التوصيل طردك حتى بابك. رحلة اكتملت!' },
+  ];
+  questions = [
+    { q: 'ما اسم الصندوق الفولاذي الكبير الذي تُنقل فيه البضائع عبر البحر؟', a: ['الحاوية', 'الخزنة', 'الصندوق البريدي'], c: 0 },
+    { q: 'ما اسم أكبر ميناء في العراق؟', a: ['ميناء العقبة', 'ميناء أم قصر', 'ميناء جدة'], c: 1 },
+    { q: 'من يفحص البضائع عند دخولها البلد؟', a: ['الطبيب', 'المعلم', 'موظف الجمارك'], c: 2 },
+    { q: 'الدلفين، رمز المحيط، حيوان…', a: ['ذكي واجتماعي يسبح في مجموعات', 'يعيش وحيدًا في الصحراء', 'لا يستطيع السباحة'], c: 0 },
+  ];
+  componentDidMount() {
+    this.onNavResize = () => this.setState({ isMobile: window.innerWidth < 920 });
+    window.addEventListener('resize', this.onNavResize);
+    this.onNavResize();
+  }
+  renderVals() {
+    const s = this.state;
+    const Q = this.questions[s.qi % this.questions.length];
+    const answered = s.picked >= 0;
+    const last = s.qi === this.questions.length - 1;
+    return {
+      navLinksDisp: this.state.isMobile ? 'none' : 'flex',
+      burgerDisp: this.state.isMobile ? 'flex' : 'none',
+      menuOpen: this.state.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      stopMenuEvt: e => e.stopPropagation(),
+
+      stops: this.stops.map((st, i) => ({
+        n: String(i + 1), t: st.t,
+        bg: i === s.stop ? '#0433B8' : '#FFFFFF', fg: i === s.stop ? '#FFFFFF' : '#0A1533',
+        pick: () => this.setState({ stop: i }),
+      })),
+      activeTitle: this.stops[s.stop].t,
+      activeDesc: this.stops[s.stop].d,
+      qNum: String(Math.min(s.qi + 1, this.questions.length)), qTotal: String(this.questions.length), score: String(s.score),
+      question: Q.q,
+      answers: Q.a.map((label, i) => ({
+        label,
+        bg: answered ? (i === Q.c ? '#E9F8EF' : i === s.picked ? '#FDEBEB' : '#F8FAFF') : '#F8FAFF',
+        fg: answered && i === Q.c ? '#1a6b3c' : answered && i === s.picked ? '#a33' : '#0A1533',
+        border: answered ? (i === Q.c ? '#9ED9B5' : i === s.picked ? '#e5b3b3' : '#DCE5FA') : '#A9C4F7',
+        pick: () => { if (!answered) this.setState({ picked: i, score: s.score + (i === Q.c ? 1 : 0) }); },
+      })),
+      feedback: answered ? (s.picked === Q.c ? 'أحسنت! إجابة صحيحة' : 'ليست الإجابة، الصحيحة باللون الأخضر.') : '',
+      feedbackColor: answered && s.picked === Q.c ? '#1a6b3c' : '#a33',
+      nextLabel: last ? 'ابدأ من جديد' : 'السؤال التالي',
+      nextQ: () => this.setState(last ? { qi: 0, picked: -1, score: 0 } : { qi: s.qi + 1, picked: -1 }),
+      facts: [
+        { big: '٪90', d: 'تقريبًا من بضائع العالم تسافر عبر البحر، ملابسك ولعبك غالبًا أبحرت قبل أن تصلك!' },
+        { big: '24,000+', d: 'حاوية يمكن أن تحملها أكبر سفن الحاويات في العالم في رحلة واحدة.' },
+        { big: '6', d: 'أسماء أحجام شهيرة للحاويات، أشهرها حاوية 20 قدمًا وحاوية 40 قدمًا.' },
+        { big: '37 كم/س', d: 'سرعة تصلها الدلافين وهي تسبق السفن وتقفز فوق الأمواج، لهذا اختارها المحيط رمزًا للحركة الذكية.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

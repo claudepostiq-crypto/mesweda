@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/guide-umm.jpg" data-resource-id="img-umm" />
+<meta name="ext-resource-dependency" content="assets/guide-china.jpg" data-resource-id="img-china" />
+<meta name="ext-resource-dependency" content="assets/guide-customs.jpg" data-resource-id="img-customs" />
+<meta name="ext-resource-dependency" content="assets/guide-airsea.jpg" data-resource-id="img-airsea" />
+<meta name="ext-resource-dependency" content="assets/guide-containers.jpg" data-resource-id="img-containers" />
+<meta name="ext-resource-dependency" content="assets/guide-docs.jpg" data-resource-id="img-docs" />
+<meta name="ext-resource-dependency" content="brand/pattern-sea.png" data-resource-id="pat-sea" />
+<meta name="ext-resource-dependency" content="brand/pattern-land.png" data-resource-id="pat-land" />
+<meta name="ext-resource-dependency" content="brand/pattern-air.png" data-resource-id="pat-air" />
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#E7EDFD}
+body{font-family:'TT Commons Pro','IBM Plex Sans Arabic',Figtree,sans-serif;color:#0A1533}
+a{color:#0433B8;text-decoration:none}a:hover{color:#2F55E6}
+*{box-sizing:border-box}
+::selection{background:#A9C4F7}
+@keyframes foamDrift{0%{background-position:0 0}100%{background-position:-1200px 0}}
+@keyframes seaDrift{0%{background-position:0 0}100%{background-position:-534px 0}}
+@keyframes sugIn{0%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}
+@keyframes fadeUp{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div dir="rtl" lang="ar" style="font-family:'IBM Plex Sans Arabic','TT Commons Pro',Figtree,sans-serif;background:#E7EDFD;min-height:100vh">
+
+<!-- ============ NAV ============ -->
+<nav data-screen-label="التنقل" style="position:fixed;top:0;right:0;left:0;z-index:60;display:flex;align-items:center;gap:28px;padding:14px 40px;transition:background .4s,box-shadow .4s;background:{{ navBg }};backdrop-filter:{{ navBlur }};-webkit-backdrop-filter:{{ navBlur }};box-shadow:{{ navShadow }}">
+  <a href="#top" aria-label="Ocean المحيط" style="display:flex;align-items:center;flex:none">
+    <img src="brand/logo-white.png" alt="المحيط ocean" style="height:44px;display:{{ logoWhiteDisp }}">
+    <img src="brand/logo-color.png" alt="المحيط ocean" style="height:44px;display:{{ logoColorDisp }}">
+  </a>
+  <div style="display:{{ navLinksDisp }};align-items:center;gap:22px;margin-inline-start:16px;font-size:15px;font-weight:500;color:{{ navLink }}">
+    <a href="#top" style="color:inherit">{{ L.home }}</a>
+    <a href="Ocean Iraq Knowledge Hub.dc.html" style="color:inherit">{{ L.knowledge }}</a>
+    <a href="#services" style="color:inherit">{{ L.services }}</a>
+    <a href="#industries" style="color:inherit">{{ L.industries }}</a>
+    <a href="Ocean Iraq About.dc.html" style="color:inherit">{{ L.about }}</a>
+    <a href="Ocean Iraq Explorers.dc.html" style="color:inherit">{{ L.explorers }}</a>
+    <a href="Ocean Iraq Contact.dc.html" style="color:inherit">{{ L.contact }}</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;margin-inline-start:auto">
+    <button onClick="{{ toggleLang }}" style="background:none;border:1px solid {{ navLinkFaint }};color:{{ navLink }};border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">{{ L.switch }}</button>
+    <a href="tel:+9640000000000" onClick="{{ noopCall }}" style="color:{{ navLink }};font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px">{{ L.call }}</a>
+    <button onClick="{{ openCallback }}" style="background:{{ navCtaBg }};color:{{ navCtaFg }};border:none;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit">{{ L.book }}</button>
+    <button onClick="{{ openMenu }}" aria-label="القائمة" style="display:{{ burgerDisp }};flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px">
+      <span style="width:22px;height:2.5px;background:{{ navLink }};border-radius:2px"></span><span style="width:22px;height:2.5px;background:{{ navLink }};border-radius:2px"></span><span style="width:22px;height:2.5px;background:{{ navLink }};border-radius:2px"></span>
+    </button>
+  </div>
+</nav>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:95;background:rgba(10,21,51,0.45);backdrop-filter:blur(6px)" onClick="{{ closeMenu }}">
+    <div dir="rtl" style="position:absolute;top:0;bottom:0;inset-inline-start:0;width:min(320px,85vw);background:#FFFFFF;padding:26px 24px;display:flex;flex-direction:column;gap:4px;overflow:auto;box-shadow:0 0 60px rgba(10,21,51,0.3)" onClick="{{ stopEvt }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+        <img src="brand/dolphin-color.png" alt="المحيط" style="height:38px">
+        <button onClick="{{ closeMenu }}" aria-label="إغلاق" style="background:#E7EDFD;border:none;border-radius:999px;width:36px;height:36px;font-size:15px;cursor:pointer;color:#0433B8;font-weight:700">✕</button>
+      </div>
+      <a href="#top" onClick="{{ closeMenu }}" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">الرئيسية</a>
+      <a href="Ocean Iraq Knowledge Hub.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">دليل المحيط</a>
+      <a href="#services" onClick="{{ closeMenu }}" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">خدماتنا</a>
+      <a href="#industries" onClick="{{ closeMenu }}" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">القطاعات</a>
+      <a href="Ocean Iraq About.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">عن المحيط</a>
+      <a href="Ocean Iraq Explorers.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">مستكشفو المحيط</a>
+      <a href="Ocean Iraq Contact.dc.html" style="padding:13px 10px;font-size:16px;font-weight:700;color:#0A1533;border-radius:12px" style-hover="background:#E7EDFD;color:#0433B8">تواصل معنا</a>
+      <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px">
+        <button onClick="{{ openCallbackFromMenu }}" style="background:#0433B8;color:#fff;border:none;border-radius:999px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit">احجز مكالمة</button>
+        <a href="tel:+9640000000000" style="text-align:center;border:1.5px solid #A9C4F7;color:#0433B8;border-radius:999px;padding:13px;font-size:15px;font-weight:700">اتصل الآن</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ============ HERO (sticky scroll transition) ============ -->
+<div id="top" style="height:100vh;position:relative">
+  <div style="position:sticky;top:0;height:100vh;overflow:hidden;background:#0A1533">
+    <!-- shoreline footage -->
+    <video ref="{{ setVideo }}" src="uploads/vecteezy_aerial-turquoise-ocean-waves-crashing-into-white-foam_71658295.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ waterOpacity }}"></video>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,21,51,{{ overlayTop }}) 0%,rgba(10,21,51,0.16) 45%,rgba(10,21,51,0.28) 100%);opacity:{{ waterOpacity }}"></div>
+
+    <!-- hero content -->
+    <div style="position:relative;z-index:10;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:safe center;overflow:auto;padding:110px 24px 120px;text-align:center;transform:translateY({{ heroLift }}px);opacity:{{ heroContentOpacity }}">
+      <h1 style="margin:0;font-size:clamp(38px,5.2vw,72px);line-height:1.25;font-weight:700;color:#FFFFFF;max-width:1100px;text-wrap:balance;text-shadow:0 2px 30px rgba(10,21,51,0.35);animation:fadeUp .9s ease both">دليلك إلى الخدمات اللوجستية والتجارة في العراق</h1>
+      <p dir="ltr" style="margin:18px 0 0;font-size:clamp(15px,1.4vw,19px);font-weight:500;color:#E7EDFD;font-family:Figtree,'TT Commons Pro',sans-serif;text-shadow:0 2px 24px rgba(10,21,51,0.6),0 1px 4px rgba(10,21,51,0.45);animation:fadeUp .9s .12s ease both">Everything you need to move goods into, out of, and across Iraq.</p>
+
+      <!-- glass search -->
+      <button onClick="{{ openSearch }}" aria-label="ابحث" style="margin-top:44px;width:min(720px,92vw);display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.14);border:1px solid rgba(169,196,247,0.55);border-radius:999px;padding:20px 28px;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 40px rgba(10,21,51,0.18);cursor:text;text-align:start;font-family:inherit;animation:fadeUp .9s .22s ease both" style-hover="border:1px solid rgba(255,255,255,0.8);background:rgba(255,255,255,0.2)">
+      <span aria-hidden="true" style="flex:none;width:22px;height:22px;border:2.5px solid rgba(255,255,255,0.9);border-radius:50%;position:relative;display:inline-block"><span style="position:absolute;width:2.5px;height:9px;background:rgba(255,255,255,0.9);border-radius:2px;transform:rotate(-45deg);bottom:-6px;inset-inline-start:-3px"></span></span>
+        <span style="flex:1;font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,0.92);font-weight:500">ابحث عن أي شيء يخص الشحن إلى العراق</span>
+        <span dir="ltr" style="flex:none;font-size:12px;color:rgba(169,196,247,0.9);border:1px solid rgba(169,196,247,0.5);border-radius:6px;padding:3px 8px;font-family:ui-monospace,Menlo,monospace">/</span>
+      </button>
+      <div key="{{ sugKey }}" style="margin-top:14px;font-size:13.5px;color:rgba(231,237,253,0.85);animation:sugIn .5s ease both;min-height:20px">مثال: {{ suggestion }}</div>
+
+      <!-- CTAs -->
+      <div style="margin-top:34px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;animation:fadeUp .9s .32s ease both">
+        <button onClick="{{ openCallback }}" style="background:#FFFFFF;color:#0433B8;border:none;border-radius:999px;padding:16px 34px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 6px 24px rgba(10,21,51,0.25)" style-hover="background:#E7EDFD">احجز مكالمة استشارية مجانية</button>
+        <a href="tel:+9640000000000" onClick="{{ noopCall }}" style="background:#0433B8;color:#FFFFFF;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:16px 34px;font-size:16px;font-weight:700;display:inline-flex;align-items:center;gap:8px" style-hover="background:#2F55E6;color:#FFFFFF">اتصل بنا الآن</a>
+      </div>
+      <div style="margin-top:12px;font-size:12.5px;color:rgba(231,237,253,0.7)">لديك شحنة عاجلة أو مشكلة تحتاج إلى إجابة فورية؟ فريقنا جاهز.</div>
+    </div>
+
+    <!-- foam edge -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:110px;z-index:6;opacity:{{ waterOpacity }};background:linear-gradient(0deg,rgba(255,255,255,0.85),rgba(255,255,255,0) 85%)"></div>
+    <!-- scroll cue -->
+    <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:7;color:#0433B8;font-size:12px;font-weight:600;letter-spacing:.06em;opacity:{{ waterOpacity }}">↓ مرّر لتكتشف</div>
+  </div>
+</div>
+
+<!-- ============ MAIN CONTENT ============ -->
+<main style="position:relative;z-index:20;background:#E7EDFD;margin-top:-2px">
+
+  <!-- S1 featured guides -->
+  <section id="knowledge" data-screen-label="ابدأ من هنا" style="max-width:1240px;margin:0 auto;padding:110px 40px 90px">
+    <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+      <h2 style="margin:0;font-size:clamp(32px,3.6vw,52px);font-weight:700;color:#0A1533">ابدأ من هنا</h2>
+      <span dir="ltr" style="font-size:14px;font-weight:600;color:#5B79E8;font-family:Figtree,sans-serif">Start here, featured guides</span>
+    </div>
+    <div style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="6">
+        <a href="{{ g.href }}" style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid rgba(169,196,247,0.5);transition:transform .25s,box-shadow .25s;color:#0A1533" style-hover="transform:translateY(-4px);box-shadow:0 16px 44px rgba(4,51,184,0.13);color:#0A1533">
+          <div style="position:relative;width:100%;aspect-ratio:16/7;background:#E7EDFD;overflow:hidden">
+            <sc-if value="{{ g.hasImg }}" hint-placeholder-val="{{ false }}">
+              <img src="{{ g.img }}" alt="{{ g.ar }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(0.82)">
+            </sc-if>
+            <sc-if value="{{ g.noImg }}" hint-placeholder-val="{{ true }}">
+              <div style="position:absolute;inset:0" onClick="{{ blockNav }}">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ g.slotId }}" shape="rect" placeholder="{{ g.ph }}" hint-size="100%,100%"></x-import>
+              </div>
+            </sc-if>
+            <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,51,184,0.18) 0%,rgba(47,85,230,0.22) 55%,rgba(4,51,184,0.5) 100%)"></div>
+            <span style="display:{{ g.chipDisp }};position:absolute;top:14px;inset-inline-start:16px;background:#0433B8;color:#fff;font-size:12px;font-weight:600;border-radius:999px;padding:5px 12px;background-image:url('{{ g.patternUrl }}');background-repeat:no-repeat;background-size:cover;background-blend-mode:soft-light">{{ g.cat }}</span>
+          </div>
+          <div style="padding:22px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1">
+            <div style="font-size:19px;font-weight:700;line-height:1.5">{{ g.ar }}</div>
+            <div dir="ltr" style="font-size:12.5px;font-weight:600;color:#5B79E8;font-family:Figtree,sans-serif;text-align:end">{{ g.en }}</div>
+            <div style="font-size:14px;color:#3a4664;line-height:1.7;flex:1">{{ g.dAr }}</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+              <span style="font-size:12.5px;color:#7E96E8;font-weight:600">{{ g.mins }} دقائق قراءة</span>
+              <span aria-hidden="true" style="color:#0433B8;font-size:18px">←</span>
+            </div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- S2 popular searches -->
+  <section data-screen-label="عمليات البحث الشائعة" style="background:#FFFFFF;padding:70px 40px">
+    <div style="max-width:1240px;margin:0 auto">
+      <h2 style="margin:0 0 26px;font-size:clamp(24px,2.4vw,34px);font-weight:700">عمليات البحث الأكثر شيوعًا</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <sc-for list="{{ popular }}" as="p" hint-placeholder-count="8">
+          <button onClick="{{ p.go }}" style="background:#E7EDFD;border:1px solid #A9C4F7;color:#0433B8;border-radius:999px;padding:11px 22px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:inherit" style-hover="background:#0433B8;color:#FFFFFF;border:1px solid #0433B8">{{ p.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 services -->
+  <section id="services" data-screen-label="الخدمات" style="max-width:1240px;margin:0 auto;padding:100px 40px">
+    <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+      <h2 style="margin:0;font-size:clamp(32px,3.6vw,52px);font-weight:700">استكشف حسب الخدمة</h2>
+      <span dir="ltr" style="font-size:14px;font-weight:600;color:#5B79E8;font-family:Figtree,sans-serif">One company. Every logistics challenge.</span>
+    </div>
+    <p style="margin:14px 0 0;max-width:640px;font-size:16px;line-height:1.9;color:#3a4664">تسلّمنا التحدي، ونعيد إليك اليقين، من الشحن الدولي حتى باب عميلك في العراق.</p>
+    <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="12">
+        <a href="Ocean Iraq Service Warehousing.dc.html" style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:16px;padding:18px 20px;color:#0A1533;transition:border-color .2s,background .2s" style-hover="border-color:#0433B8;background:#F4F7FE;color:#0433B8">
+          <span style="flex:none;width:44px;height:44px;border-radius:12px;background-color:#E7EDFD;background-image:url('{{ s.patternUrl }}');background-repeat:no-repeat;background-size:cover;background-position:center"></span>
+          <span style="display:flex;flex-direction:column;gap:2px">
+            <span style="font-size:16px;font-weight:700">{{ s.ar }}</span>
+            <span dir="ltr" style="font-size:12px;color:#7E96E8;font-weight:600;font-family:Figtree,sans-serif;text-align:end">{{ s.en }}</span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- S4 countries -->
+  <section data-screen-label="أدلة الدول" style="background:#0433B8;padding:64px 40px;position:relative;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('brand/pattern-air.png');background-repeat:no-repeat;background-size:900px auto;background-position:left -80px top -40px;opacity:0.14"></div>
+    <div style="max-width:1240px;margin:0 auto;position:relative">
+      <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:clamp(32px,3.6vw,52px);font-weight:700;color:#FFFFFF">استكشف حسب الدولة</h2>
+        <a href="Ocean Iraq Knowledge Hub.dc.html" style="color:#FFFFFF;font-size:14px;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.4)">كل الأدلة ←</a>
+        <span dir="ltr" style="font-size:14px;font-weight:600;color:#A9C4F7;font-family:Figtree,sans-serif">Country shipping guides</span>
+      </div>
+      <div style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px">
+        <sc-for list="{{ countries }}" as="c" hint-placeholder-count="11">
+          <a href="{{ c.href }}" style="display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,0.08);border:1px solid rgba(169,196,247,0.35);border-radius:16px;padding:20px 22px;color:#FFFFFF;backdrop-filter:blur(6px)" style-hover="background:rgba(255,255,255,0.16);color:#FFFFFF">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+              <span style="font-size:18px;font-weight:700">{{ c.ar }} ← العراق</span>
+              <span dir="ltr" style="font-size:12px;color:#A9C4F7;font-weight:600;font-family:Figtree,sans-serif">{{ c.en }}</span>
+            </div>
+            <div style="height:26px;background-image:url('{{ c.patternUrl }}');background-repeat:no-repeat;background-size:cover;background-position:center;border-radius:6px;opacity:0.8"></div>
+            <div style="font-size:13px;color:#A9C4F7;font-weight:500">{{ c.days }} · محتوى تجريبي</div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 industries -->
+  <section id="industries" data-screen-label="القطاعات" style="max-width:1240px;margin:0 auto;padding:100px 40px">
+    <h2 style="margin:0;font-size:clamp(32px,3.6vw,52px);font-weight:700">قطاعات نخدمها</h2>
+    <p style="margin:14px 0 0;max-width:640px;font-size:16px;line-height:1.9;color:#3a4664">لكل قطاع تحدياته اللوجستية، ولدى المحيط خبرة تشغيلية تناسبها.</p>
+    <div style="margin-top:40px;display:flex;flex-wrap:wrap;gap:10px">
+      <sc-for list="{{ industries }}" as="i" hint-placeholder-count="12">
+        <a href="#industries" style="display:inline-flex;align-items:baseline;gap:10px;border:1px solid #A9C4F7;background:#FFFFFF;border-radius:999px;padding:13px 24px;color:#0A1533" style-hover="background:#0433B8;color:#FFFFFF;border-color:#0433B8">
+          <span style="font-size:15.5px;font-weight:700">{{ i.ar }}</span>
+          <span dir="ltr" style="font-size:12px;font-weight:600;opacity:0.65;font-family:Figtree,sans-serif">{{ i.en }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- S6 why ocean -->
+  <section id="why" data-screen-label="لماذا المحيط" style="background:#FFFFFF;padding:100px 40px">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <h2 style="margin:0;font-size:clamp(32px,3.6vw,52px);font-weight:700;line-height:1.4">شركة واحدة عبر سلسلة الإمداد (Supply Chain) كاملة</h2>
+        <p style="margin:20px 0 0;font-size:17px;line-height:2;color:#3a4664;max-width:560px">تتسلّم المحيط التحدي اللوجستي، وتعيد إليك اليقين من البداية إلى النهاية: شحن دولي، وتخليص جمركي (Customs Clearance)، وتخزين، وتوزيع، ودعم تجاري مستمر، بعقد واحد وتواصل واضح ومعرفة عميقة بالسوق العراقي وفق معايير دولية.</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#0433B8;font-weight:800">01</span><span style="font-size:15.5px;line-height:1.8">تواصل واضح وفريق ظاهر خلف كل شحنة</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#0433B8;font-weight:800">02</span><span style="font-size:15.5px;line-height:1.8">عقود متكاملة تغطي الرحلة كاملة بدل التعامل مع خمسة مزودين</span></div>
+          <div style="display:flex;gap:12px;align-items:baseline"><span style="color:#0433B8;font-weight:800">03</span><span style="font-size:15.5px;line-height:1.8">تخزين وتوزيع داخل العراق يضمنان استمرارية أعمالك</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <sc-for list="{{ stats }}" as="st" hint-placeholder-count="6">
+          <div style="border:1.5px dashed #A9C4F7;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px;background:#F8FAFF">
+            <span dir="ltr" style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#7E96E8">[CMS]</span>
+            <span style="font-size:26px;font-weight:800;color:#0433B8">، </span>
+            <span style="font-size:13.5px;color:#3a4664;font-weight:600">{{ st.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 latest -->
+  <section data-screen-label="آخر المستجدات" style="max-width:1240px;margin:0 auto;padding:100px 40px">
+    <h2 style="margin:0 0 36px;font-size:clamp(28px,3vw,44px);font-weight:700">أحدث ما نشرنا</h2>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="5">
+        <a href="Ocean Iraq Article.dc.html" style="display:flex;align-items:baseline;gap:22px;padding:20px 6px;border-top:1px solid #A9C4F7;color:#0A1533" style-hover="background:#FFFFFF;color:#0433B8">
+          <span style="flex:none;width:90px;font-size:12.5px;color:#7E96E8;font-weight:600">{{ n.date }}</span>
+          <span style="flex:1;font-size:17px;font-weight:700;line-height:1.6">{{ n.ar }}</span>
+          <span style="flex:none;background:#E7EDFD;color:#0433B8;font-size:12px;font-weight:600;border-radius:999px;padding:4px 12px">{{ n.tag }}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- S8 conversion -->
+  <section id="contact" data-screen-label="لوحة التحويل" style="background:#0433B8;position:relative;overflow:hidden;padding:72px 40px">
+    <img src="brand/logo-white.png" alt="" aria-hidden="true" style="position:absolute;inset-inline-end:-60px;bottom:-40px;height:280px;opacity:0.08;pointer-events:none">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('brand/pattern-sea.png');background-repeat:no-repeat;background-size:cover;background-position:center top;opacity:0.08"></div>
+    <div style="max-width:900px;margin:0 auto;position:relative;text-align:center">
+      <h2 style="margin:0;font-size:clamp(34px,4vw,58px);font-weight:700;color:#FFFFFF">لست متأكدًا من أين تبدأ؟</h2>
+      <p dir="ltr" style="margin:14px 0 0;font-size:16px;color:#A9C4F7;font-weight:500;font-family:Figtree,sans-serif">Not sure where to begin?</p>
+      <div style="margin-top:38px;display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <button onClick="{{ openCallback }}" style="background:#FFFFFF;color:#0433B8;border:none;border-radius:999px;padding:16px 34px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit" style-hover="background:#E7EDFD">احجز مكالمة مجانية</button>
+        <a href="tel:+9640000000000" onClick="{{ noopCall }}" style="background:transparent;color:#FFFFFF;border:1.5px solid rgba(255,255,255,0.6);border-radius:999px;padding:16px 34px;font-size:16px;font-weight:700" style-hover="background:rgba(255,255,255,0.12);color:#FFFFFF">اتصل بالمحيط الآن</a>
+        <a href="#contact" onClick="{{ openCallback }}" style="background:#2F55E6;color:#FFFFFF;border:none;border-radius:999px;padding:16px 34px;font-size:16px;font-weight:700" style-hover="background:#5B79E8;color:#FFFFFF">أرسل استفسارًا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer id="explorers" data-screen-label="التذييل" style="background:#0A1533;position:relative;overflow:hidden;padding:80px 40px 40px;color:#E7EDFD">
+    <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('brand/pattern-sea.png');background-repeat:no-repeat;background-size:cover;background-position:center top;opacity:0.05"></div>
+    <div style="max-width:1240px;margin:0 auto;position:relative;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <img src="brand/logo-white.png" alt="المحيط ocean" style="height:64px;align-self:start">
+        <p style="margin:0;font-size:14.5px;line-height:1.9;color:#A9C4F7;max-width:300px">نظام التشغيل خلف التجارة العراقية، شحن، جمارك، تخزين، وتوزيع بيد واحدة.</p>
+        <div dir="ltr" style="font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#5B79E8">[placeholder] +964 · WhatsApp · Baghdad HQ</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <span style="font-weight:700;color:#FFFFFF;margin-bottom:4px">الخدمات</span>
+        <a href="#services" style="color:#A9C4F7">الشحن البحري</a><a href="#services" style="color:#A9C4F7">الشحن الجوي</a><a href="#services" style="color:#A9C4F7">التخليص الجمركي</a><a href="#services" style="color:#A9C4F7">التخزين</a><a href="#services" style="color:#A9C4F7">التوزيع</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <span style="font-weight:700;color:#FFFFFF;margin-bottom:4px">دليل المحيط</span>
+        <a href="Ocean Iraq Country China.dc.html" style="color:#A9C4F7">الشحن من الصين</a><a href="Ocean Iraq Article.dc.html" style="color:#A9C4F7">الشحن من تركيا</a><a href="Ocean Iraq Article.dc.html" style="color:#A9C4F7">التخليص الجمركي</a><a href="Ocean Iraq Knowledge Hub.dc.html" style="color:#A9C4F7">المصطلحات</a><a href="Ocean Iraq Explorers.dc.html" style="color:#A9C4F7">مستكشفو المحيط</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14.5px">
+        <span style="font-weight:700;color:#FFFFFF;margin-bottom:4px">النشرة البريدية</span>
+        <div style="display:flex;gap:8px">
+          <input placeholder="بريدك الإلكتروني" style="flex:1;background:rgba(255,255,255,0.08);border:1px solid rgba(169,196,247,0.4);border-radius:999px;padding:11px 18px;color:#FFFFFF;font-family:inherit;font-size:13.5px;outline:none">
+          <button style="background:#0433B8;color:#fff;border:none;border-radius:999px;padding:11px 20px;font-weight:700;cursor:pointer;font-family:inherit">اشترك</button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:13px">
+          <a href="#top" style="color:#5B79E8">الخصوصية</a><a href="#top" style="color:#5B79E8">الشروط</a><a href="#top" style="color:#5B79E8">الوظائف</a><a href="#top" style="color:#5B79E8">إمكانية الوصول</a>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1240px;margin:48px auto 0;position:relative;border-top:1px solid rgba(169,196,247,0.2);padding-top:22px;font-size:12.5px;color:#5B79E8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
+      <span>© 2026 المحيط Ocean Iraq. نموذج أولي، المحتوى التشغيلي بانتظار التحقق.</span>
+      <span dir="ltr" style="font-family:Figtree,sans-serif">Prototype · TT Commons Pro substituted with Figtree pending licence</span>
+    </div>
+  </footer>
+</main>
+
+<!-- ============ SEARCH OVERLAY ============ -->
+<sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:100;background:rgba(231,237,253,0.88);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:flex;flex-direction:column;align-items:center;padding:9vh 24px 40px;overflow:auto" onClick="{{ closeSearchBg }}">
+    <div style="width:min(760px,100%)" onClick="{{ stop }}">
+      <div style="display:flex;align-items:center;gap:14px;background:#FFFFFF;border:1.5px solid #A9C4F7;border-radius:999px;padding:6px 10px 6px 6px;box-shadow:0 20px 60px rgba(4,51,184,0.15)">
+        <span aria-hidden="true" style="flex:none;margin-inline-start:14px;width:18px;height:18px;border:2.5px solid #0433B8;border-radius:50%;position:relative"><span style="position:absolute;width:2.5px;height:8px;background:#0433B8;border-radius:2px;transform:rotate(-45deg);bottom:-6px;inset-inline-start:-3px"></span></span>
+        <input ref="{{ setSearchInput }}" value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" placeholder="ابحث عن أي شيء يخص الشحن إلى العراق" style="flex:1;border:none;outline:none;font-size:18px;padding:14px 4px;font-family:inherit;background:transparent;color:#0A1533">
+        <button onClick="{{ closeSearch }}" aria-label="إغلاق" style="flex:none;background:#E7EDFD;border:none;border-radius:999px;width:40px;height:40px;font-size:16px;cursor:pointer;color:#0433B8;font-weight:700">✕</button>
+      </div>
+      <sc-if value="{{ showPopular }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:26px">
+          <div style="font-size:13px;font-weight:700;color:#5B79E8;margin-bottom:12px">عمليات بحث شائعة</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <sc-for list="{{ popular }}" as="p" hint-placeholder-count="6">
+              <button onClick="{{ p.go }}" style="background:#FFFFFF;border:1px solid #A9C4F7;color:#0433B8;border-radius:999px;padding:9px 18px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit" style-hover="background:#0433B8;color:#fff">{{ p.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:40px;text-align:center;color:#3a4664;font-size:15px">لا نتائج عن «{{ q }}»، جرّب كلمة أخرى، أو <button onClick="{{ openCallback }}" style="background:none;border:none;color:#0433B8;font-weight:700;cursor:pointer;font-family:inherit;font-size:15px;text-decoration:underline">احجز مكالمة</button> وسنجيبك مباشرة.</div>
+      </sc-if>
+      <div style="margin-top:10px;display:flex;flex-direction:column;gap:22px">
+        <sc-for list="{{ groups }}" as="grp" hint-placeholder-count="0">
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#5B79E8;margin:16px 0 10px">{{ grp.label }}</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <sc-for list="{{ grp.items }}" as="r" hint-placeholder-count="0">
+                <button onClick="{{ closeSearch }}" style="text-align:start;display:flex;flex-direction:column;gap:4px;background:{{ r.bg }};border:1px solid {{ r.border }};border-radius:14px;padding:14px 18px;cursor:pointer;font-family:inherit" style-hover="border-color:#0433B8">
+                  <span style="font-size:15.5px;font-weight:700;color:#0A1533"><span>{{ r.pre }}</span><span style="background:{{ r.hlBg }};border-radius:4px;padding:{{ r.hlPad }}">{{ r.match }}</span><span>{{ r.post }}</span></span>
+                  <span dir="ltr" style="font-size:12.5px;color:#7E96E8;font-family:Figtree,sans-serif;text-align:end">{{ r.sub }}</span>
+                  <sc-if value="{{ r.extra }}" hint-placeholder-val="{{ false }}"><span style="font-size:12px;color:#5B79E8">{{ r.extra }}</span></sc-if>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<!-- ============ CALLBACK MODAL ============ -->
+<sc-if value="{{ cbOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:110;background:rgba(10,21,51,0.55);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:24px" onClick="{{ closeCallback }}">
+    <div dir="rtl" style="width:min(560px,100%);background:#FFFFFF;border-radius:24px;padding:36px;position:relative" onClick="{{ stop }}">
+      <button onClick="{{ closeCallback }}" aria-label="إغلاق" style="position:absolute;top:18px;inset-inline-end:18px;background:#E7EDFD;border:none;border-radius:999px;width:38px;height:38px;font-size:15px;cursor:pointer;color:#0433B8;font-weight:700">✕</button>
+      <img src="brand/dolphin-color.png" alt="" style="height:46px">
+      <h3 style="margin:16px 0 6px;font-size:26px;font-weight:700">احجز استشارة لوجستية مجانية</h3>
+      <p style="margin:0 0 22px;font-size:14.5px;line-height:1.9;color:#3a4664">شاركنا احتياجك، وسيتواصل معك أحد أعضاء فريق المحيط لمناقشة أفضل خطوة تالية. بدون التزام.</p>
+      <div style="border:1.5px dashed #A9C4F7;border-radius:16px;background:repeating-linear-gradient(45deg,#F4F7FE,#F4F7FE 12px,#EBF0FD 12px,#EBF0FD 24px);height:240px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px">
+        <span dir="ltr" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#5B79E8">[ Calendly embed, add booking URL ]</span>
+        <span style="font-size:13px;color:#7E96E8">تُدمج أداة الحجز هنا عند توفر الرابط</span>
+      </div>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;font-size:13.5px;color:#3a4664">
+        <span>أو مباشرة:</span><a href="tel:+9640000000000" style="font-weight:700">الهاتف [placeholder]</a><span>·</span><a href="#contact" style="font-weight:700">واتساب [placeholder]</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+</div>
+
+<template id="__bundler_thumbnail" data-bg-color="#0A1533">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0A1533"/>
+    <path d="M240 470 C420 400 540 540 720 470 S960 400 1000 470 L1000 620 L240 620 Z" fill="none" stroke="#2F55E6" stroke-width="10"/>
+    <path d="M240 400 C420 330 540 470 720 400 S960 330 1000 400" fill="none" stroke="#A9C4F7" stroke-width="8" opacity="0.7"/>
+    <text x="600" y="300" text-anchor="middle" font-family="Figtree, sans-serif" font-size="120" font-weight="800" fill="#FFFFFF">المحيط</text>
+  </svg>
+</template></x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;calmMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;heroOverlay&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.45,&quot;min&quot;:0.1,&quot;max&quot;:0.8,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;footageNote&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  state = { scroll: 0, vh: 800, searchOpen: false, cbOpen: false, q: '', results: [], db: null, sugIdx: 0, lang: 'ar', isMobile: false, menuOpen: false };
+
+  componentDidMount() {
+    this.reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    import('./ocean-data.js').then(m => { this.mod = m; this.setState({ db: m.DB }); });
+    this.onScroll = () => {
+      this.setState({ scroll: window.scrollY, vh: window.innerHeight, isMobile: window.innerWidth < 920 });
+      const v = this.video;
+      if (v && !this.reduced && !(this.props.calmMotion ?? false)) {
+        const hidden = window.scrollY > window.innerHeight * 0.4;
+        if (hidden && !v.paused) v.pause();
+        else if (!hidden && v.paused) v.play().catch(() => {});
+      }
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onScroll);
+    this.onSlash = (e) => {
+      if (e.key === '/' && !this.state.searchOpen && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); this.setState({ searchOpen: true }); }
+      if (e.key === 'Escape') this.setState({ searchOpen: false, cbOpen: false });
+    };
+    window.addEventListener('keydown', this.onSlash);
+    this.sugTimer = setInterval(() => this.setState(s => ({ sugIdx: s.sugIdx + 1 })), 3800);
+    this.onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onScroll);
+    window.removeEventListener('keydown', this.onSlash);
+    clearInterval(this.sugTimer);
+    cancelAnimationFrame(this.raf);
+  }
+
+  search(q) {
+    if (!this.mod) return [];
+    return this.mod.search(q).slice(0, 24);
+  }
+
+  renderVals() {
+    const s = this.state;
+    const db = s.db;
+    const p = Math.min(Math.max(s.scroll / (s.vh * 0.35), 0), 1);
+    const solid = s.scroll > s.vh * 0.6;
+    const langAr = s.lang === 'ar';
+    const L = langAr
+      ? { home: 'الرئيسية', knowledge: 'دليل المحيط', services: 'خدماتنا', industries: 'القطاعات', about: 'عن المحيط', explorers: 'مستكشفو المحيط', contact: 'تواصل معنا', book: 'احجز مكالمة', call: 'اتصل الآن', switch: 'EN' }
+      : { home: 'Home', knowledge: 'Knowledge', services: 'Services', industries: 'Industries', about: 'About', explorers: 'Ocean Explorers', contact: 'Contact', book: 'Book a callback', call: 'Call now', switch: 'عربي' };
+    const R = (typeof window !== 'undefined' && window.__resources) || {};
+    const patternUrl = k => R['pat-' + k] || ('brand/pattern-' + k + '.png');
+    const guideImgs = {
+      'umm-qasr': R['img-umm'] || 'assets/guide-umm.jpg',
+      'china-guide': R['img-china'] || 'assets/guide-china.jpg',
+      'customs': R['img-customs'] || 'assets/guide-customs.jpg',
+      'air-vs-sea': R['img-airsea'] || 'assets/guide-airsea.jpg',
+      'containers': R['img-containers'] || 'assets/guide-containers.jpg',
+      'docs-checklist': R['img-docs'] || 'assets/guide-docs.jpg',
+    };
+    const guidePh = {};
+    const guides = (db ? db.guides : []).map(g => ({
+      ...g, patternUrl: patternUrl(g.pattern),
+      href: g.id === 'china-guide' ? 'Ocean Iraq Country China.dc.html' : 'Ocean Iraq Article.dc.html',
+      img: guideImgs[g.id] || '', hasImg: !!guideImgs[g.id], noImg: !guideImgs[g.id],
+      chipDisp: ['air-vs-sea', 'containers', 'docs-checklist'].includes(g.id) ? 'none' : 'inline-block',
+      slotId: 'guide-' + g.id, ph: guidePh[g.id] || 'صورة تشغيلية واقعية (1600×700 WebP)',
+    }));
+    const services = (db ? db.services : []).map(x => ({ ...x, patternUrl: patternUrl(x.pattern) }));
+    const countries = (db ? db.countries : []).map(c => ({ ...c, patternUrl: patternUrl(c.mode === 'sea' ? 'sea' : c.mode === 'air' ? 'air' : 'land'), href: c.id === 'cn' ? 'Ocean Iraq Country China.dc.html' : 'Ocean Iraq Knowledge Hub.dc.html' }));
+    const popular = (db ? db.popular : []).map(label => ({ label, go: () => this.setState({ searchOpen: true, q: label, results: this.search(label) }, () => this.searchInput && this.searchInput.focus()) }));
+    const sugs = db ? db.suggestions : ['الشحن من الصين إلى العراق'];
+    const results = s.results;
+    const nq = (s.q || '').toLowerCase();
+    const groupsMap = {};
+    for (const r of results) {
+      const idx = r.title.toLowerCase().indexOf(nq);
+      const hit = idx >= 0 && nq.length > 0;
+      const item = {
+        sub: r.sub, extra: r.extra, bg: '#FFFFFF', border: '#DCE5FA',
+        pre: hit ? r.title.slice(0, idx) : r.title,
+        match: hit ? r.title.slice(idx, idx + nq.length) : '',
+        post: hit ? r.title.slice(idx + nq.length) : '',
+        hlBg: hit ? '#A9C4F7' : 'transparent',
+        hlPad: hit ? '0 2px' : '0',
+      };
+      (groupsMap[r.typeAr] = groupsMap[r.typeAr] || []).push(item);
+    }
+    const groups = Object.entries(groupsMap).map(([label, items]) => ({ label, items }));
+    const stats = [
+      { label: 'نسبة التسليم في الموعد' }, { label: 'حجم الشحنات السنوي' }, { label: 'المساحة التخزينية (م²)' },
+      { label: 'الدول المخدومة' }, { label: 'نسبة احتفاظ العملاء' }, { label: 'سنوات الخبرة' },
+    ];
+    const overlay = this.props.heroOverlay ?? 0.45;
+    return {
+      L, guides, services, countries, popular, groups, stats,
+      industries: db ? db.industries : [],
+      news: db ? db.news : [],
+      suggestion: sugs[s.sugIdx % sugs.length],
+      sugKey: 'sug' + (s.sugIdx % sugs.length),
+      waterOpacity: 1,
+      heroLift: -p * 90,
+      heroContentOpacity: Math.max(1 - p * 1.6, 0),
+      overlayTop: overlay,
+      showNote: (this.props.footageNote ?? true) && p < 0.5,
+      navBg: solid ? 'rgba(255,255,255,0.92)' : 'linear-gradient(180deg,rgba(10,21,51,0.38),rgba(10,21,51,0))',
+      navBlur: solid ? 'blur(14px)' : 'blur(4px)',
+      navShadow: solid ? '0 2px 20px rgba(4,51,184,0.10)' : 'none',
+      navLink: solid ? '#0A1533' : '#FFFFFF',
+      navLinkFaint: solid ? '#A9C4F7' : 'rgba(255,255,255,0.5)',
+      navCtaBg: solid ? '#0433B8' : '#FFFFFF',
+      navCtaFg: solid ? '#FFFFFF' : '#0433B8',
+      logoWhiteDisp: solid ? 'none' : 'block',
+      logoColorDisp: solid ? 'block' : 'none',
+      searchOpen: s.searchOpen, cbOpen: s.cbOpen, q: s.q,
+      showPopular: s.searchOpen && !s.q,
+      noResults: s.searchOpen && s.q && groups.length === 0,
+      setVideo: el => {
+        this.video = el;
+        if (el) {
+          if (this.reduced || (this.props.calmMotion ?? false)) { el.pause(); el.currentTime = 1; }
+          else if (Math.max(1 - p * 1.25, 0) <= 0.02) el.pause();
+          else if (el.paused) el.play().catch(() => {});
+        }
+      },
+      setSearchInput: el => { this.searchInput = el; if (el) setTimeout(() => el.focus(), 50); },
+      openSearch: () => this.setState({ searchOpen: true }),
+      closeSearch: () => this.setState({ searchOpen: false }),
+      closeSearchBg: () => this.setState({ searchOpen: false }),
+      openCallback: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ cbOpen: true, searchOpen: false }); },
+      closeCallback: () => this.setState({ cbOpen: false }),
+      stop: e => e.stopPropagation(),
+      blockNav: e => { e.preventDefault(); e.stopPropagation(); },
+      noopCall: e => { /* tel: works on device; keep default */ },
+      onQ: e => { const q = e.target.value; this.setState({ q, results: this.search(q) }); },
+      onKey: e => { if (e.key === 'Escape') this.setState({ searchOpen: false }); },
+      toggleLang: () => this.setState(st => ({ lang: st.lang === 'ar' ? 'en' : 'ar' })),
+      navLinksDisp: s.isMobile ? 'none' : 'flex',
+      burgerDisp: s.isMobile ? 'flex' : 'none',
+      menuOpen: s.menuOpen,
+      openMenu: () => this.setState({ menuOpen: true }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      stopEvt: e => e.stopPropagation(),
+      openCallbackFromMenu: () => this.setState({ menuOpen: false, cbOpen: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

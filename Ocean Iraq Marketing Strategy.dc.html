@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#0A1533;height:100%}
+body{font-family:'TT Commons Pro','IBM Plex Sans Arabic',Figtree,sans-serif;color:#0A1533}
+a{color:#0433B8;text-decoration:none}a:hover{color:#2F55E6}
+*{box-sizing:border-box}
+::selection{background:#A9C4F7}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+<!-- 01 · الغلاف -->
+<section data-label="الغلاف" data-speaker-notes="افتتاح: من نحن ولماذا هذه الوثيقة. المحيط وبوست، شراكة نمو طويلة الأمد." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.11"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <img src="brand/logo-white.png" alt="المحيط Ocean" style="height:72px">
+      <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:24px;font-weight:600;letter-spacing:0.18em;color:#A9C4F7">OCEAN IRAQ × POST</span>
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <h1 style="margin:0;font-size:118px;font-weight:700;line-height:1.25"><span>الاستراتيجية التسويقية.</span></h1>
+      <p style="margin:30px 0 0;font-size:40px;font-weight:500;color:#E7EDFD;line-height:1.7"><span>نبني العلامة اللوجستية الأكثر موثوقية في العراق.</span></p>
+    </div>
+    <div style="margin-top:70px;display:flex;align-items:center;gap:18px">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:12px 30px;font-size:25px;font-weight:600">إعداد وكالة بوست</span>
+      <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:24px;color:#A9C4F7;font-weight:500">Post Agency · 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · القناعة -->
+<section data-label="القناعة" data-speaker-notes="الفكرة المؤسِّسة: التعليم قبل البيع. المحيط يصل قبل طلب عرض السعر." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:110px 120px 130px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600;color:#0433B8">القناعة</span>
+    <div style="margin:auto 0;max-width:1520px">
+      <h2 style="margin:0;font-size:82px;font-weight:700;line-height:1.5"><span>الشركة التي تعلّم السوق،</span> <span style="color:#0433B8">تكسب السوق.</span></h2>
+      <p style="margin:44px 0 0;font-size:33px;color:#3a4664;line-height:1.95;max-width:1350px"><span>معظم شركات اللوجستيات تتنافس على الحاويات والأسعار والشحن. المحيط سينافس بأن يصبح منصة المعرفة اللوجستية الأنفع في العراق، فيصل إلى الشركات قبل أن تطلب عرض السعر أصلًا.</span></p>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:110px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">02</span>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · نظرة عامة -->
+<section data-label="نظرة عامة" data-speaker-notes="الركائز السبع سريعًا، ثم نمر عليها واحدة واحدة." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الاستراتيجية بنظرة واحدة</span>
+    <h2 style="margin:24px 0 12px;font-size:60px;font-weight:700;line-height:1.35"><span>سبع ركائز. محرك نمو واحد.</span></h2>
+    <p style="margin:0 0 34px;font-size:26px;color:#3a4664;line-height:1.8;max-width:1300px"><span>بوست لن تكتفي بإنتاج مواد تسويقية، بل تبني محرك نمو متكاملًا للمحيط وتحسّنه باستمرار.</span></p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">01</div><div dir="ltr" style="margin-top:8px;font-family:Figtree,sans-serif;font-size:27px;font-weight:700;text-align:right">OceanIraq.com</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">منصة معرفية للظهور في البحث والذكاء الاصطناعي</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">02</div><div style="margin-top:8px;font-size:27px;font-weight:700">سوشيال ميديا نافعة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">تعليم، لا إعلان</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">03</div><div style="margin-top:8px;font-size:27px;font-weight:700">الإعلانات المدفوعة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">التقاط الطلب حيث يوجد</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">04</div><div style="margin-top:8px;font-size:27px;font-weight:700">المؤتمرات والشراكات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">العلاقات ما زالت تُبرم الصفقات</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">05</div><div style="margin-top:8px;font-size:27px;font-weight:700">العروض التجارية</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">قيمة مضافة، لا خصومات</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">06</div><div style="margin-top:8px;font-size:27px;font-weight:700">روزنامة الحملات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">سنة كاملة من اللحظات المنسّقة</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:800;color:#0433B8;text-align:right">07</div><div style="margin-top:8px;font-size:27px;font-weight:700">التقارير والتحليلات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">كل نشاط يُقاس</div></div>
+      <div style="background:#0433B8;border-radius:20px;padding:26px 28px;color:#FFFFFF;display:flex;flex-direction:column;justify-content:center"><div style="font-size:27px;font-weight:700;line-height:1.6">شركة واحدة.</div><div style="font-size:27px;font-weight:700;line-height:1.6">كل تحدٍّ لوجستي.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">03</span>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · فاصل الركيزة 01 -->
+<section data-label="الركيزة 01" data-speaker-notes="الموقع ليس بروشورًا، بل طبقة SEO و GEO تجيب عن أسئلة السوق." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 01 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">01</div>
+      <h2 dir="ltr" style="margin:14px 0 0;font-family:Figtree,'IBM Plex Sans Arabic',sans-serif;font-size:96px;font-weight:700;line-height:1.15;text-align:right">OceanIraq.com</h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>طبقة SEO و GEO. ليس موقعًا تعريفيًا للشركة، بل منصة لوجستية قابلة للبحث. كل صفحة تجيب عن سؤال حقيقي لدى العميل، فيظهر المحيط قبل أن يُطلب عرض السعر.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · محتوى يبحث عنه السوق -->
+<section data-label="مئات الصفحات" data-speaker-notes="كل موضوع بحثي يتحول إلى مقال يبيع بصمت على مدار الساعة." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:80px 120px 116px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 01 · محتوى يبحث عنه السوق أصلًا</span>
+    <h2 style="margin:22px 0 10px;font-size:56px;font-weight:700;line-height:1.35"><span>مئات الصفحات، وكل صفحة مندوب مبيعات.</span></h2>
+    <p style="margin:0 0 30px;font-size:25px;color:#3a4664;line-height:1.75;max-width:1400px"><span>كل موضوع يتحول إلى مقال مستقل ينتهي بأسئلة شائعة وأدلة مرتبطة وتوصية خدمة ودعوة لحجز مكالمة.</span></p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">الشحن من الصين إلى العراق</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">المسارات والمدد والتكاليف والمستندات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">الشحن من تركيا إلى العراق</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">مقارنة الخيارات البرية والبحرية والجوية.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">التخليص الكمركي في العراق</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">الإجراءات والأوراق وأسباب التأخير الشائعة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">تكاليف الشحن إلى العراق</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">ما الذي يحدد السعر، وما الذي يمكنك التحكم به.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">الشحن الجوي والبحري</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">اختيار الوسيلة حسب البضاعة والمهلة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">التخزين في بغداد</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">تخزين وتجهيز طلبات وتوزيع.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">شرح الإنكوترمز</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">من EXW إلى DDP للمستوردين العراقيين.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">البضائع الخطرة</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">الأنظمة والتغليف والتصاريح.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 28px"><div style="font-size:26px;font-weight:700">مستندات الاستيراد</div><div style="margin-top:6px;font-size:24px;color:#3a4664;line-height:1.6">كل نموذج، وبالترتيب الصحيح.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · GEO -->
+<section data-label="GEO" data-speaker-notes="GEO: أن يذكر الذكاء الاصطناعي المحيط بالاسم عند السؤال عن شريك لوجستي في العراق." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 01 · تحسين الظهور في محركات الذكاء الاصطناعي GEO</span>
+    <h2 style="margin:24px 0 12px;font-size:56px;font-weight:700;line-height:1.35"><span>الظهور داخل إجابات الذكاء الاصطناعي، لا في Google فقط.</span></h2>
+    <p style="margin:0 0 34px;font-size:25px;color:#3a4664;line-height:1.75;max-width:1450px"><span>عندما يسأل المشترون ChatGPT أو Gemini أو Claude أو Perplexity عن شريك لوجستي في العراق، ينبغي أن يُذكر المحيط بالاسم. هذا دور GEO.</span></p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">بيانات منظمة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">ترميز Schema على كل خدمة ومقال.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">أسئلة شائعة بكثافة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">إجابات عن الأسئلة التي يكتبها المستخدمون حرفيًا.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">عمق موثوق</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">أدلة مطوّلة يكتبها مشغّلون، لا كتّاب إعلانات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">ربط داخلي</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">شبكة مقالات مترابطة تؤكد الخبرة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">نشر منتظم</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">الحداثة إشارة ترتيب واستشهاد.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">تتبع إحالات الذكاء الاصطناعي</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">قياس الزيارات والذكر من النماذج شهريًا.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">06</span>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · فاصل الركيزة 02 -->
+<section data-label="الركيزة 02" data-speaker-notes="السوشيال ميديا تعلّم ولا تعلن." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 02 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">02</div>
+      <h2 style="margin:14px 0 0;font-size:96px;font-weight:700;line-height:1.3"><span>سوشيال ميديا نافعة</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>السوشيال ميديا يجب أن تعلّم، لا أن تعلن. المحيط يصبح الشركة التي تشرح اللوجستيات، عبر الصيغ التي يتصفحها صنّاع القرار العراقيون فعلًا.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 · محاور المحتوى -->
+<section data-label="محاور المحتوى" data-speaker-notes="ستة محاور محتوى أسبوعية تغطي المعرفة والدول والقطاعات والكواليس." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 02 · محاور المحتوى</span>
+    <h2 style="margin:24px 0 34px;font-size:58px;font-weight:700;line-height:1.35"><span>ستة محركات محتوى تعمل كل أسبوع.</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">معرفة الشحن</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">خرافة وحقيقة، المصطلحات، أنواع الحاويات، نصائح الشحن.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">أدلة الدول</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">الصين، تركيا، الإمارات، السعودية، أوروبا، أمريكا، الأردن، الهند.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">دراسات حالة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">عملاء حقيقيون ومسارات حقيقية ووفورات ومدد فعلية.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">محتوى القطاعات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">الإنشاءات، الصحة، النفط والغاز، التجزئة، الحكومة، التجارة الإلكترونية.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">خلف الكواليس</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">المخازن والموانئ والكمارك والتحميل والتوزيع، أناس حقيقيون.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:28px 30px"><div style="font-size:27px;font-weight:700">تحديثات السوق</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.65">تأخيرات الموانئ، الأنظمة، العطل، الوقود، المسارات الجديدة.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">08</span>
+    </div>
+  </div>
+</section>
+
+<!-- 09 · الصيغ حسب القناة -->
+<section data-label="الصيغ حسب القناة" data-speaker-notes="لكل منصة صيغة: لينكدإن للقيادة الفكرية، تيك توك للشروحات القصيرة، يوتيوب للأدلة المطوّلة." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 02 · الصيغ حسب القناة</span>
+    <h2 style="margin:24px 0 36px;font-size:58px;font-weight:700;line-height:1.35"><span>القصة المناسبة على الشاشة المناسبة.</span></h2>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:22px 34px;display:flex;align-items:center;gap:34px"><span dir="ltr" style="flex:0 0 220px;font-family:Figtree,sans-serif;font-size:29px;font-weight:700;color:#0433B8;text-align:right">LinkedIn</span><span style="font-size:26px;color:#26314f;line-height:1.6">قيادة فكرية للقطاع تستهدف المشتريات وسلاسل التوريد.</span></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:22px 34px;display:flex;align-items:center;gap:34px"><span dir="ltr" style="flex:0 0 220px;font-family:Figtree,sans-serif;font-size:29px;font-weight:700;color:#0433B8;text-align:right">Instagram</span><span style="font-size:26px;color:#26314f;line-height:1.6">كاروسيلات تعليمية للمؤسسين والمدراء والفرق.</span></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:22px 34px;display:flex;align-items:center;gap:34px"><span dir="ltr" style="flex:0 0 220px;font-family:Figtree,sans-serif;font-size:29px;font-weight:700;color:#0433B8;text-align:right">Facebook</span><span style="font-size:26px;color:#26314f;line-height:1.6">تحديثات الأعمال وإثبات المجتمع باللغات المحلية.</span></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:22px 34px;display:flex;align-items:center;gap:34px"><span dir="ltr" style="flex:0 0 220px;font-family:Figtree,sans-serif;font-size:29px;font-weight:700;color:#0433B8;text-align:right">TikTok</span><span style="font-size:26px;color:#26314f;line-height:1.6">شروحات قصيرة ومباشرة، اللوجستيات بوجه إنساني.</span></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:22px 34px;display:flex;align-items:center;gap:34px"><span dir="ltr" style="flex:0 0 220px;font-family:Figtree,sans-serif;font-size:29px;font-weight:700;color:#0433B8;text-align:right">YouTube</span><span style="font-size:26px;color:#26314f;line-height:1.6">أدلة مطوّلة تستمر بالترتيب ويستشهد بها الذكاء الاصطناعي.</span></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">09</span>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · فاصل الركيزة 03 -->
+<section data-label="الركيزة 03" data-speaker-notes="المدفوع يلتقط الطلب الموجود، لا يصنعه." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 03 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">03</div>
+      <h2 style="margin:14px 0 0;font-size:96px;font-weight:700;line-height:1.3"><span>الإعلانات المدفوعة</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>الإعلان المدفوع يلتقط الطلب ولا يصنعه. نستهدف من يبحث فعلًا، ويتصفح فعلًا، ويقترب فعلًا من القرار.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · قنوات الميزانية -->
+<section data-label="قنوات الميزانية" data-speaker-notes="أربع قنوات مدفوعة تصب في مسار تحويل واحد." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 03 · أين تعمل الميزانية</span>
+    <h2 style="margin:24px 0 36px;font-size:58px;font-weight:700;line-height:1.35"><span>أربع قنوات، مسار تحويل واحد.</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:34px 38px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:700;color:#0433B8;text-align:right">Google Ads</div><div style="margin-top:12px;font-size:25px;color:#3a4664;line-height:1.75">الشحن إلى العراق، الوكيل اللوجستي، التخليص الكمركي، التخزين، الصين إلى العراق، مع صفحات هبوط تطابق عبارة البحث حرفيًا.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:34px 38px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:700;color:#0433B8;text-align:right">LinkedIn Ads</div><div style="margin-top:12px;font-size:25px;color:#3a4664;line-height:1.75">المشتريات، سلاسل التوريد، مدراء الاستيراد، أصحاب المصانع، المشتريات الحكومية، النفط والغاز، المنظمات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:34px 38px"><div dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:700;color:#0433B8;text-align:right">Meta Ads</div><div style="margin-top:12px;font-size:25px;color:#3a4664;line-height:1.75">إعادة استهداف الزوار، والترويج للمقالات والأدلة ودراسات الحالة والمواد المجانية وحجوزات المكالمات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:34px 38px"><div style="font-size:30px;font-weight:700;color:#0433B8">إعادة الاستهداف</div><div style="margin-top:12px;font-size:25px;color:#3a4664;line-height:1.75">زوار الموقع، قرّاء النشرة، محمّلو الأدلة، العملاء السابقون، الاستفسارات المفتوحة.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">11</span>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · فاصل الركيزة 04 -->
+<section data-label="الركيزة 04" data-speaker-notes="أكبر العقود تُبرم بالعلاقات. حضور فعلي في مجتمع الأعمال." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 04 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1400px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">04</div>
+      <h2 style="margin:14px 0 0;font-size:88px;font-weight:700;line-height:1.3"><span>المؤتمرات والعلاقات والشراكات</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>العلاقات ما زالت تُبرم أكبر العقود اللوجستية في العراق. المحيط يصبح حاضرًا بقوة داخل مجتمع الأعمال، لا على الإنترنت فقط.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · الحضور الشخصي -->
+<section data-label="الحضور الشخصي" data-speaker-notes="أين يظهر المحيط وجهًا لوجه: مؤتمرات، تشبيك، شركاء، منصات تحدث." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 04 · أين يحضر المحيط شخصيًا</span>
+    <h2 style="margin:24px 0 36px;font-size:58px;font-weight:700;line-height:1.35"><span>قاعات وطاولات ومنصات.</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">المؤتمرات</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">المعارض التجارية، الاستيراد والتصدير، الإنشاءات، التصنيع، النفط والغاز، المشتريات الحكومية، غرف التجارة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">التشبيك</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">إفطارات الأعمال، الطاولات المستديرة، الجلسات القطاعية، عشاءات المدراء التنفيذيين، منتديات المشتريات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">الشركاء الاستراتيجيون</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">الموانئ، خطوط الشحن، شركات الطيران، المدن الصناعية، المصارف، الاتحادات التجارية، السفارات، مجالس الأعمال، المناطق الحرة، الجامعات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">التحدث في الفعاليات</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">قادة المحيط يصبحون خبراء معروفين في الشحن إلى العراق، ومستقبل التجارة العراقية، وسلاسل التوريد، وأنظمة الاستيراد.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">13</span>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · فاصل الركيزة 05 -->
+<section data-label="الركيزة 05" data-speaker-notes="عروض تحرك القرار دون خصومات." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 05 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">05</div>
+      <h2 style="margin:14px 0 0;font-size:92px;font-weight:700;line-height:1.3"><span>العروض التجارية والحوافز</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>العروض يجب أن تحرّك القرار دون أن تُرخّص العلامة. المحيط يقود بالقيمة، لا بالخصومات أبدًا.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · عروض تقودها القيمة -->
+<section data-label="عروض القيمة" data-speaker-notes="سبعة مداخل قيمة بدل التخفيضات: استشارات وفحوصات ومراجعات." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 05 · عروض تقودها القيمة</span>
+    <h2 style="margin:24px 0 34px;font-size:54px;font-weight:700;line-height:1.4"><span>سبع طرق لقول «تحدث معنا» دون قول «تخفيضات».</span></h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:22px">
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">استشارة لوجستية مجانية</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">جلسة عمل، لا عرض مبيعات.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">فحص صحة الشحن</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">تشخيص التسريبات في سلسلة التوريد الحالية.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">مراجعة المستندات الكمركية</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">اكتشاف المشاكل قبل أن تكتشفها الحدود.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">تخطيط الشحنة الأولى</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">إزالة مخاطر أول خطوة مع المحيط.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">تدقيق شحن فصلي</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">تحسين مستمر للعملاء الحاليين.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">تحسين سلسلة التوريد</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">مراجعة منهجية بنتائج قابلة للقياس.</div></div>
+      <div style="flex:0 0 calc(25% - 17px);background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:20px;padding:26px 28px"><div style="font-size:26px;font-weight:700">تهيئة العملاء الجدد</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">كل شيء جاهز وبشكل صحيح من اليوم الأول.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">15</span>
+    </div>
+  </div>
+</section>
+
+<!-- 16 · فاصل الركيزة 06 -->
+<section data-label="الركيزة 06" data-speaker-notes="تسويق مستمر على مدار السنة، مرتبط بدورة الشراء العراقية." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 06 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">06</div>
+      <h2 style="margin:14px 0 0;font-size:96px;font-weight:700;line-height:1.3"><span>روزنامة الحملات</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>التسويق يعمل على مدار السنة باستمرار، لا عشوائيًا. لكل ربع موضوع مرتبط بالطريقة التي تخطط بها الشركات العراقية وتشتري فعلًا.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · السنة منسّقة -->
+<section data-label="روزنامة السنة" data-speaker-notes="ثماني محطات: من آفاق كانون الثاني إلى تخطيط نهاية السنة، مع نسق دائم." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 06 · السنة منسّقة</span>
+    <h2 style="margin:24px 0 34px;font-size:58px;font-weight:700;line-height:1.35"><span>إيقاعات موسمية ونسق دائم.</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">كانون الثاني</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">آفاق التجارة السنوية</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">تحديد أجندة استيراد السنة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">شباط</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">تخطيط الاستيراد</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">هيكلة شحنات النصف الأول من السنة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">رمضان</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">استمرارية الأعمال</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">إبقاء الشحنات تتحرك قبل العيد.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">الصيف</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">لوجستيات الإنشاءات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">مشاريع البنى التحتية والشحن الثقيل.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">العودة إلى الأعمال</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">موسم المشتريات</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">ميزانيات جديدة ومناقصات وعقود جديدة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">بلاك فرايدي</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">التجزئة والتجهيز</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">التخزين والتوصيل الأخير في الذروة.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:18px;padding:24px 26px"><div style="font-size:24px;font-weight:600;color:#5B79E8">نهاية السنة</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">استيرادات السنة القادمة</div><div style="margin-top:8px;font-size:24px;color:#3a4664;line-height:1.6">تخطيط مسبق وحجز سعات وتجنب فوضى الربع الأول.</div></div>
+      <div style="background:#0433B8;border-radius:18px;padding:24px 26px;color:#FFFFFF"><div style="font-size:24px;font-weight:600;color:#A9C4F7">طوال السنة</div><div style="margin-top:6px;font-size:26px;font-weight:700;line-height:1.5">نسق دائم</div><div style="margin-top:8px;font-size:24px;color:#E7EDFD;line-height:1.6">تحديثات الموانئ، تنبيهات التجارة، تقارير القطاع، قصص العملاء.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">17</span>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · فاصل الركيزة 07 -->
+<section data-label="الركيزة 07" data-speaker-notes="لوحة قيادة شهرية واحدة للإدارة: ما ينجح، وما لا ينجح، والخطوة التالية." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <span style="border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600">الركيزة 07 من 07</span>
+      <img src="brand/dolphin-white.png" alt="المحيط" style="height:38px">
+    </div>
+    <div style="margin-top:auto;max-width:1350px">
+      <div dir="ltr" style="font-family:Figtree,sans-serif;font-size:150px;font-weight:800;color:rgba(255,255,255,0.22);line-height:1;text-align:right">07</div>
+      <h2 style="margin:14px 0 0;font-size:96px;font-weight:700;line-height:1.3"><span>التقارير والتحليلات</span></h2>
+      <p style="margin:30px 0 0;font-size:33px;color:#E7EDFD;line-height:1.9"><span>كل نشاط تسويقي يُقاس. لوحة قيادة شهرية واحدة تُري الإدارة ما ينجح، وما لا ينجح، وما الخطوة التالية.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · ماذا نقيس -->
+<section data-label="ماذا نقيس" data-speaker-notes="أربع مجموعات مؤشرات: الموقع، السوشيال، المدفوع، المبيعات." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الركيزة 07 · ماذا نقيس شهريًا</span>
+    <h2 style="margin:24px 0 36px;font-size:58px;font-weight:700;line-height:1.35"><span>من النقرات إلى العقود المُبرمة.</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">الموقع</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">الزيارات العضوية، إحالات الذكاء الاصطناعي، أفضل المقالات، الترتيب، التحويلات، مدة القراءة، التحميلات.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">السوشيال</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">الوصول، التفاعل، المشاركات، الحفظ، زيارات الملف، جودة المتابعين، نقرات الموقع.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">المدفوع</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">كلفة العميل المحتمل، كلفة النقرة، كلفة الاستحواذ، معدل التحويل، العائد على الإنفاق الإعلاني، جودة العملاء المحتملين.</div></div>
+      <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:22px;padding:32px 38px"><div style="font-size:29px;font-weight:700;color:#0433B8">المبيعات</div><div style="margin-top:10px;font-size:25px;color:#3a4664;line-height:1.75">الاستفسارات المؤهلة، المكالمات، العروض المقدمة، العقود المبرمة، متوسط قيمة العقد، دورة البيع، القيمة الدائمة للعميل.</div></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">19</span>
+    </div>
+  </div>
+</section>
+
+<!-- 20 · رحلة العميل -->
+<section data-label="رحلة العميل" data-speaker-notes="إحدى عشرة خطوة من السؤال الأول إلى العودة للشحنات القادمة. الخطوة 09 هي التحول إلى عميل." dir="rtl" lang="ar" style="background:#0433B8;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.09"></div>
+  <div style="position:absolute;inset:0;padding:90px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;border:1.5px solid rgba(255,255,255,0.55);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600">رحلة العميل</span>
+    <h2 style="margin:26px 0 44px;font-size:60px;font-weight:700;line-height:1.35"><span>من بحث في Google إلى عميل دائم.</span></h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:22px;max-width:1600px;margin:0 auto">
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">01</span><span style="font-size:26px;font-weight:600;white-space:nowrap">لديه سؤال لوجستي</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">02</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يبحث في Google أو ChatGPT</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">03</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يجد OceanIraq.com</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">04</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يقرأ مقالًا نافعًا</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">05</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يستكشف أدلة مرتبطة</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">06</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يبني ثقة بالمحيط</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">07</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يحجز مكالمة مجانية</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">08</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يتلقى استشارة خبير</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:#FFFFFF;border:1px solid #FFFFFF;border-radius:999px;padding:18px 32px;color:#0433B8"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800">09</span><span style="font-size:26px;font-weight:700;white-space:nowrap">يصبح عميلًا</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">10</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يشارك التجربة</span></div>
+      <div style="display:flex;align-items:center;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:18px 32px"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:800;color:#A9C4F7">11</span><span style="font-size:26px;font-weight:600;white-space:nowrap">يعود لشحناته القادمة</span></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-white.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#A9C4F7;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#A9C4F7;font-weight:600">20</span>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · مقاييس النجاح -->
+<section data-label="مقاييس النجاح" data-speaker-notes="ماذا يعني الفوز خلال 12 إلى 18 شهرًا: خمس نتائج واضحة." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 120px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">مقاييس النجاح · 12 إلى 18 شهرًا</span>
+    <h2 style="margin:24px 0 36px;font-size:58px;font-weight:700;line-height:1.35"><span>كيف يبدو الفوز.</span></h2>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:flex;align-items:center;gap:40px;padding:26px 10px;border-bottom:1px solid rgba(169,196,247,0.6)"><span dir="ltr" style="flex:0 0 80px;font-family:Figtree,sans-serif;font-size:40px;font-weight:800;color:#0433B8;text-align:right">01</span><span style="font-size:30px;font-weight:600;line-height:1.6">المرجع اللوجستي الأكثر موثوقية على الإنترنت في العراق.</span></div>
+      <div style="display:flex;align-items:center;gap:40px;padding:26px 10px;border-bottom:1px solid rgba(169,196,247,0.6)"><span dir="ltr" style="flex:0 0 80px;font-family:Figtree,sans-serif;font-size:40px;font-weight:800;color:#0433B8;text-align:right">02</span><span style="font-size:30px;font-weight:600;line-height:1.6">الصفحة الأولى في نتائج البحث لأعلى العبارات اللوجستية قيمة.</span></div>
+      <div style="display:flex;align-items:center;gap:40px;padding:26px 10px;border-bottom:1px solid rgba(169,196,247,0.6)"><span dir="ltr" style="flex:0 0 80px;font-family:Figtree,sans-serif;font-size:40px;font-weight:800;color:#0433B8;text-align:right">03</span><span style="font-size:30px;font-weight:600;line-height:1.6">صوت معروف عبر المؤتمرات والشراكات وفعاليات القطاع.</span></div>
+      <div style="display:flex;align-items:center;gap:40px;padding:26px 10px;border-bottom:1px solid rgba(169,196,247,0.6)"><span dir="ltr" style="flex:0 0 80px;font-family:Figtree,sans-serif;font-size:40px;font-weight:800;color:#0433B8;text-align:right">04</span><span style="font-size:30px;font-weight:600;line-height:1.6">مصدر رائد للمعرفة اللوجستية عبر منصات التواصل.</span></div>
+      <div style="display:flex;align-items:center;gap:40px;padding:26px 10px"><span dir="ltr" style="flex:0 0 80px;font-family:Figtree,sans-serif;font-size:40px;font-weight:800;color:#0433B8;text-align:right">05</span><span style="font-size:30px;font-weight:600;line-height:1.6">الشريك اللوجستي المفضل للمؤسسات المتوسطة والكبيرة والمتعددة الجنسيات في العراق.</span></div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:100px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">21</span>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · دور وكالة بوست -->
+<section data-label="دور بوست" data-speaker-notes="الخلاصة: برنامج واحد طويل الأمد، والهدف أن يكون المحيط أول اسم يخطر بالبال." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:110px 120px 130px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:10px 26px;font-size:24px;font-weight:600;color:#0433B8">دور وكالة بوست</span>
+    <div style="margin:auto 0;max-width:1450px">
+      <h2 style="margin:0;font-size:72px;font-weight:700;line-height:1.45"><span>ليست مواد تسويقية،</span> <span style="color:#0433B8">بل محرك نمو.</span></h2>
+      <p style="margin:36px 0 0;font-size:30px;color:#3a4664;line-height:1.95;max-width:1350px"><span>استراتيجية وهوية ومحتوى وتحسين ظهور في البحث والذكاء الاصطناعي وإعلام مدفوع وشراكات وحملات وتحليلات وتقارير، كلها مدمجة في برنامج واحد طويل الأمد.</span></p>
+      <p style="margin:40px 0 0;font-size:34px;font-weight:700;color:#0433B8;line-height:1.8;max-width:1350px"><span>هدفنا: عندما تفكر أي مؤسسة في العراق باللوجستيات، تفكر بالمحيط أولًا.</span></p>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:110px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">22</span>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · الخيار الأول: الأساس -->
+<section data-label="الخيار الأول" data-speaker-notes="خيار الأساس: 6,000 دولار شهريًا، كل دولار محسوب. ميزانية إعلانات 2,000 دولار تُدفع مباشرة." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:76px 120px 116px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الاستثمار · الخيار الأول</span>
+    <h2 style="margin:20px 0 8px;font-size:54px;font-weight:700;line-height:1.35"><span>الأساس.</span> <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:28px;font-weight:600;color:#5B79E8">Foundation</span></h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:start;margin-top:18px">
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">استراتيجية التسويق وإدارة الحساب</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$800</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">البحث واستخبارات النمو</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$600</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة السوشيال ميديا (المحتوى والنشر وإدارة المجتمع)</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$1,500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">التصميم الجرافيكي</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$900</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">المطبوعات والمواد التسويقية</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة إعلانات Google</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة إعلانات Meta</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة إعلانات LinkedIn</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$300</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px"><span style="font-size:26px;font-weight:600">التقارير والتحليلات</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$400</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:16px 8px;border-top:2px solid #0433B8"><span style="font-size:28px;font-weight:700;color:#0433B8">إجمالي أتعاب الوكالة</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:800;color:#0433B8">$6,000</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="background:#0433B8;color:#FFFFFF;border-radius:24px;padding:38px 40px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+          <div style="position:relative"><span style="font-size:24px;font-weight:500;color:#A9C4F7">أتعاب الوكالة، شهريًا</span><div dir="ltr" style="margin-top:10px;font-family:Figtree,sans-serif;font-size:66px;font-weight:800;text-align:right">$6,000</div></div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:24px;padding:34px 40px">
+          <span style="font-size:24px;font-weight:600;color:#0433B8">ميزانية الإعلانات، تُدفع مباشرة</span>
+          <div dir="ltr" style="margin-top:8px;font-family:Figtree,sans-serif;font-size:48px;font-weight:800;color:#0A1533;text-align:right">$2,000<span style="font-size:26px;font-weight:600;color:#7E96E8"> /mo</span></div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">Google Ads</span>
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">Meta Ads</span>
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">LinkedIn Ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">23</span>
+    </div>
+  </div>
+</section>
+
+<!-- 24 · الخيار الثاني: النمو -->
+<section data-label="الخيار الثاني" data-speaker-notes="خيار النمو: 7,000 دولار شهريًا مع SEO وGEO والموقع والفيديوهات، وميزانية إعلانات 5,000 دولار." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:76px 120px 116px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الاستثمار · الخيار الثاني</span>
+    <h2 style="margin:20px 0 8px;font-size:54px;font-weight:700;line-height:1.35"><span>النمو.</span> <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:28px;font-weight:600;color:#5B79E8">Growth</span></h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:start;margin-top:18px">
+      <div style="display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">استراتيجية التسويق وإدارة الحساب</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$700</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">البحث واستخبارات النمو</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$600</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">إدارة السوشيال ميديا</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$1,100</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">التصميم الجرافيكي</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$700</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">المطبوعات والمواد التسويقية</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$300</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">إدارة إعلانات Google وMeta وLinkedIn</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$700</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">تحسين محركات البحث SEO</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$400</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">تحسين الظهور في الذكاء الاصطناعي GEO</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$350</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">تطوير الموقع وصيانته</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$750</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:25px;font-weight:600">تنسيق المؤتمرات والفعاليات والشراكات</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$400</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:10px 8px"><span style="font-size:25px;font-weight:600">أربعة فيديوهات مميزة للعلامة</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8">$1,000</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:14px 8px;border-top:2px solid #0433B8"><span style="font-size:28px;font-weight:700;color:#0433B8">إجمالي أتعاب الوكالة</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:800;color:#0433B8">$7,000</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div style="background:#0433B8;color:#FFFFFF;border-radius:24px;padding:38px 40px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+          <div style="position:relative"><span style="font-size:24px;font-weight:500;color:#A9C4F7">أتعاب الوكالة، شهريًا</span><div dir="ltr" style="margin-top:10px;font-family:Figtree,sans-serif;font-size:66px;font-weight:800;text-align:right">$7,000</div></div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:24px;padding:34px 40px">
+          <span style="font-size:24px;font-weight:600;color:#0433B8">ميزانية الإعلانات، تُدفع مباشرة</span>
+          <div dir="ltr" style="margin-top:8px;font-family:Figtree,sans-serif;font-size:48px;font-weight:800;color:#0A1533;text-align:right">$5,000<span style="font-size:26px;font-weight:600;color:#7E96E8"> /mo</span></div>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">Google Ads</span>
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">Meta Ads</span>
+            <span dir="ltr" style="background:#E7EDFD;border-radius:999px;padding:7px 20px;font-family:Figtree,sans-serif;font-size:24px;font-weight:600;color:#0433B8">LinkedIn Ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">24</span>
+    </div>
+  </div>
+</section>
+
+<!-- 25 · الخيار الثالث: التحول -->
+<section data-label="الخيار الثالث" data-speaker-notes="خيار التحول: كل ما في النمو، إضافة إلى تطوير Ocean OS بقيمة 3,000 دولار شهريًا للشهرين الأولين ثم صيانة 1,000 دولار." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:76px 120px 116px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الاستثمار · الخيار الثالث</span>
+    <h2 style="margin:20px 0 8px;font-size:54px;font-weight:700;line-height:1.35"><span>التحول.</span> <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:28px;font-weight:600;color:#5B79E8">Transformation</span></h2>
+    <div style="flex:1;display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:start;margin-top:18px">
+      <div style="display:flex;flex-direction:column">
+        <span style="font-size:26px;font-weight:700;color:#0433B8;padding:6px 8px 10px">تطوير Ocean OS · الشهران الأول والثاني</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">بوابة العملاء</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$500</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة المخزون</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$600</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة المستودعات</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$450</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">تتبع الشحنات</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$450</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">إدارة المستندات</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$350</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px;border-bottom:1px solid rgba(169,196,247,0.6)"><span style="font-size:26px;font-weight:600">نظام طلبات التوصيل</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$300</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:13px 8px"><span style="font-size:26px;font-weight:600">ضمان الجودة والاختبار والإطلاق</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:26px;font-weight:700;color:#0433B8">$350</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:30px;padding:15px 8px;border-top:2px solid #0433B8"><span style="font-size:28px;font-weight:700;color:#0433B8">إجمالي تطوير Ocean OS، شهريًا</span><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:30px;font-weight:800;color:#0433B8">$3,000</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="background:#0433B8;color:#FFFFFF;border-radius:24px;padding:32px 40px;position:relative;overflow:hidden">
+          <div style="position:absolute;inset:0;background:url('brand/pattern-sea.png') center / cover no-repeat;opacity:0.1"></div>
+          <div style="position:relative"><span style="font-size:24px;font-weight:500;color:#A9C4F7">أتعاب الوكالة، شهريًا</span><div dir="ltr" style="margin-top:8px;font-family:Figtree,sans-serif;font-size:58px;font-weight:800;text-align:right">$7,000</div><span style="display:block;margin-top:8px;font-size:24px;color:#A9C4F7;line-height:1.7">كل ما في خيار النمو مشمول.</span></div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:24px;padding:28px 40px">
+          <span style="font-size:24px;font-weight:600;color:#0433B8">ميزانية الإعلانات، تُدفع مباشرة</span>
+          <div dir="ltr" style="margin-top:6px;font-family:Figtree,sans-serif;font-size:44px;font-weight:800;color:#0A1533;text-align:right">$5,000<span style="font-size:26px;font-weight:600;color:#7E96E8"> /mo</span></div>
+        </div>
+        <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:24px;padding:28px 40px">
+          <span style="font-size:24px;font-weight:600;color:#0433B8">صيانة Ocean OS · من الشهر الثالث</span>
+          <div dir="ltr" style="margin-top:6px;font-family:Figtree,sans-serif;font-size:44px;font-weight:800;color:#0A1533;text-align:right">$1,000<span style="font-size:26px;font-weight:600;color:#7E96E8"> /mo</span></div>
+          <p style="margin:12px 0 0;font-size:24px;color:#3a4664;line-height:1.8">استضافة المنصة، إصلاح الأخطاء، التحديثات الأمنية، تحسين الميزات، الدعم الفني.</p>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">25</span>
+    </div>
+  </div>
+</section>
+
+<!-- 26 · الإضافات وملخص الاستثمار -->
+<section data-label="ملخص الاستثمار" data-speaker-notes="المقارنة النهائية: 8,000 للأساس، 12,000 للنمو، 15,000 للتحول في الشهرين الأولين ثم 13,000." dir="rtl" lang="ar" style="background:#E7EDFD;color:#0A1533;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <div style="position:absolute;inset:0;padding:84px 120px 116px;display:flex;flex-direction:column">
+    <span style="align-self:flex-start;background:#FFFFFF;border:1px solid rgba(169,196,247,0.7);border-radius:999px;white-space:nowrap;padding:9px 24px;font-size:24px;font-weight:600;color:#0433B8">الإضافات وملخص الاستثمار</span>
+    <h2 style="margin:24px 0 36px;font-size:54px;font-weight:700;line-height:1.35"><span>ثلاثة خيارات،</span> <span style="color:#0433B8">كل دولار محسوب.</span></h2>
+    <div style="background:#FFFFFF;border:1px solid rgba(169,196,247,0.5);border-radius:24px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;background:#0433B8;color:#FFFFFF">
+        <div style="padding:22px 34px;font-size:25px;font-weight:600;color:#A9C4F7">البند</div>
+        <div style="padding:22px 24px;font-size:25px;font-weight:700;text-align:center">الأساس</div>
+        <div style="padding:22px 24px;font-size:25px;font-weight:700;text-align:center">النمو</div>
+        <div style="padding:22px 24px;font-size:25px;font-weight:700;text-align:center">التحول</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;border-bottom:1px solid rgba(169,196,247,0.5)">
+        <div style="padding:20px 34px;font-size:25px;font-weight:600">أتعاب الوكالة</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$6,000</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$7,000</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$7,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;border-bottom:1px solid rgba(169,196,247,0.5)">
+        <div style="padding:20px 34px;font-size:25px;font-weight:600">ميزانية الإعلانات المدفوعة</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$2,000</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$5,000</div>
+        <div dir="ltr" style="padding:20px 24px;font-family:Figtree,sans-serif;font-size:25px;font-weight:700;color:#0433B8;text-align:center">$5,000</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;border-bottom:1px solid rgba(169,196,247,0.5)">
+        <div style="padding:20px 34px;font-size:25px;font-weight:600">تطوير Ocean OS</div>
+        <div style="padding:20px 24px;font-size:24px;color:#7E96E8;text-align:center">غير مشمول</div>
+        <div style="padding:20px 24px;font-size:24px;color:#7E96E8;text-align:center">غير مشمول</div>
+        <div style="padding:20px 24px;font-size:24px;font-weight:600;text-align:center;line-height:1.6"><span dir="ltr" style="font-family:Figtree,sans-serif;font-weight:700;color:#0433B8">$3,000</span> · الشهران الأول والثاني</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;border-bottom:1px solid rgba(169,196,247,0.5)">
+        <div style="padding:20px 34px;font-size:25px;font-weight:600">صيانة Ocean OS</div>
+        <div style="padding:20px 24px;font-size:24px;color:#7E96E8;text-align:center">غير مشمول</div>
+        <div style="padding:20px 24px;font-size:24px;color:#7E96E8;text-align:center">غير مشمول</div>
+        <div style="padding:20px 24px;font-size:24px;font-weight:600;text-align:center;line-height:1.6"><span dir="ltr" style="font-family:Figtree,sans-serif;font-weight:700;color:#0433B8">$1,000</span> · من الشهر الثالث</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.25fr;background:#E7EDFD">
+        <div style="padding:24px 34px;font-size:26px;font-weight:700;color:#0433B8">إجمالي الاستثمار الشهري</div>
+        <div dir="ltr" style="padding:24px 24px;font-family:Figtree,sans-serif;font-size:28px;font-weight:800;color:#0433B8;text-align:center">$8,000</div>
+        <div dir="ltr" style="padding:24px 24px;font-family:Figtree,sans-serif;font-size:28px;font-weight:800;color:#0433B8;text-align:center">$12,000</div>
+        <div style="padding:24px 24px;font-size:24px;font-weight:700;color:#0433B8;text-align:center;line-height:1.6"><span dir="ltr" style="font-family:Figtree,sans-serif;font-size:28px;font-weight:800">$15,000</span> الشهران الأولان، ثم <span dir="ltr" style="font-family:Figtree,sans-serif;font-size:28px;font-weight:800">$13,000</span></div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:0;inset-inline:120px;height:96px;display:{{ footerDisp }};align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:14px"><img src="brand/dolphin-color.png" alt="المحيط" style="height:26px"><span style="font-size:24px;color:#5B79E8;font-weight:500">المحيط × بوست · الاستراتيجية التسويقية</span></div>
+      <span dir="ltr" style="display:{{ pageDisp }};font-family:Figtree,sans-serif;font-size:24px;color:#7E96E8;font-weight:600">26</span>
+    </div>
+  </div>
+</section>
+
+<!-- 27 · الخاتمة -->
+<section data-label="الخاتمة" data-speaker-notes="إغلاق: المحيط، الاسم الأول في اللوجستيات العراقية. شكرًا." dir="rtl" lang="ar" style="background:#0A1533;color:#FFFFFF;font-family:'IBM Plex Sans Arabic',Figtree,sans-serif;overflow:hidden">
+  <video src="uploads/vecteezy_aerial-turquoise-ocean-waves-crashing-into-white-foam_71658295.mp4" autoPlay="{{ true }}" muted="{{ true }}" loop="{{ true }}" playsInline="{{ true }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></video>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,21,51,0.55) 0%,rgba(10,21,51,0.45) 50%,rgba(4,51,184,0.55) 100%)"></div>
+  <div style="position:absolute;inset:0;padding:100px 120px 90px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <img src="brand/logo-white.png" alt="المحيط Ocean" style="height:110px">
+    <h2 style="margin:60px 0 0;font-size:96px;font-weight:700;line-height:1.3"><span>الاسم الأول في اللوجستيات العراقية.</span></h2>
+    <p style="margin:34px 0 0;font-size:30px;color:#A9C4F7;font-weight:500"><span>وكالة بوست · الاستراتيجية التسويقية</span></p>
+  </div>
+</section>
+
+</x-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFooterMeta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;التذييل&quot;},&quot;showPageNumbers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;التذييل&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const footer = this.props.showFooterMeta ?? true;
+    const pages = this.props.showPageNumbers ?? true;
+    return {
+      footerDisp: footer ? 'flex' : 'none',
+      pageDisp: pages ? 'inline' : 'none'
+    };
+  }
+}
+</script>
+</body>
+</html>
