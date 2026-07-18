@@ -151,7 +151,7 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2856FF&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;engagementProposalUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/engagement-proposal.pdf&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;},&quot;marketLeaderUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://claude.ai/code/artifact/ab6e5fb3-53a9-48b6-b053-282775876dbd&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2856FF&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;engagementProposalUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/engagement-proposal.pdf?v=2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;},&quot;marketLeaderUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://claude.ai/code/artifact/ab6e5fb3-53a9-48b6-b053-282775876dbd&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;}}">
 class Component extends DCLogic {
   state = {
     muted: true,
@@ -171,7 +171,7 @@ class Component extends DCLogic {
   }
   // 6-digit code reveals the Ocean Iraq private "Website" page in place.
   get privateCode(){ return '140726'; }
-  get cardA(){ return { href: this.props.engagementProposalUrl ?? 'assets/engagement-proposal.pdf' }; }
+  get cardA(){ return { href: this.props.engagementProposalUrl ?? 'assets/engagement-proposal.pdf?v=2' }; }
   get cardB(){ return { href: this.props.marketLeaderUrl ?? 'https://claude.ai/code/artifact/ab6e5fb3-53a9-48b6-b053-282775876dbd' }; }
   get accent(){ return this.props.accentColor ?? '#2856FF'; }
 
