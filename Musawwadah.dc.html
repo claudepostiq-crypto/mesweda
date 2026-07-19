@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500&amp;display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#F4F3EF;}
+  *{box-sizing:border-box;}
+  body{font-family:'Tajawal',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:#2856FF;text-decoration:none;}
+  a:hover{color:#1b3fd1;}
+  input{font-family:inherit;}
+  @keyframes msw-rise{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+  @keyframes msw-caret{0%,100%{opacity:.25;}50%{opacity:1;}}
+  @keyframes msw-breathe{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.06);opacity:.8;}}
+  @keyframes msw-pop{0%{transform:scale(.3);opacity:0;}60%{transform:scale(1.18);}100%{transform:scale(1);opacity:1;}}
+  @keyframes msw-halo{0%,100%{box-shadow:0 0 0 4px rgba(40,86,255,.18),0 0 10px rgba(40,86,255,.45);}50%{box-shadow:0 0 0 7px rgba(40,86,255,.28),0 0 18px rgba(40,86,255,.7);}}
+  @keyframes msw-shake{10%,90%{transform:translateX(-2px);}20%,80%{transform:translateX(4px);}30%,50%,70%{transform:translateX(-8px);}40%,60%{transform:translateX(8px);}}
+  @keyframes msw-sweep{0%{box-shadow:0 18px 50px rgba(0,0,0,.34),inset 0 0 0 rgba(40,86,255,0);}50%{box-shadow:0 0 60px rgba(40,86,255,.6),inset 0 0 40px rgba(40,86,255,.35);border-color:rgba(40,86,255,.8);}100%{box-shadow:0 0 90px rgba(40,86,255,.85),inset 0 0 60px rgba(40,86,255,.5);border-color:rgba(40,86,255,.95);}}
+  .msw-dot-on{background:#2f6bff !important;box-shadow:0 0 12px rgba(40,86,255,.85);animation:msw-pop .32s ease both;}
+  .msw-dot-active{animation:msw-halo 1.5s ease-in-out infinite;}
+  .msw-cap-error{animation:msw-shake .5s ease;border-color:rgba(224,104,95,.75) !important;}
+  .msw-cap-success{animation:msw-sweep .6s ease forwards;}
+  .msw-card{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s,border-color .28s;}
+  .msw-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(13,17,23,.14);border-color:rgba(40,86,255,.28);}
+  .msw-card .msw-arrow{transition:transform .28s cubic-bezier(.2,.8,.2,1);}
+  .msw-card:hover .msw-arrow{transform:translateX(6px);}
+  @media(max-width:720px){.msw-card-grid{grid-template-columns:1fr !important;}}
+  .msw-ex{transition:transform .3s cubic-bezier(.2,.8,.2,1),border-color .3s;}
+  .msw-ex:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.95) !important;}
+  .msw-ex .msw-exarrow{transition:transform .3s cubic-bezier(.2,.8,.2,1);display:inline-block;}
+  .msw-ex:hover .msw-exarrow{transform:translateX(6px);}
+  @media(max-width:820px){.msw-ex-grid{grid-template-columns:1fr !important;}}
+</style>
+</helmet>
+<div dir="rtl" style="position:fixed;inset:0;overflow:hidden;background:#F4F3EF;">
+
+  <!-- PERSISTENT VIDEO LAYER (dim, behind cream, full-bleed) -->
+  <sc-if value="{{ showLogin }}" hint-placeholder-val="{{ true }}">
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;">
+    <video ref="{{ videoRef }}" src="assets/opening.mp4" autoplay="" muted="" loop="" playsinline="" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.14;"></video>
+  </div>
+  </sc-if>
+
+  <!-- LOGIN / HOME -->
+  <sc-if value="{{ showLogin }}" hint-placeholder-val="{{ true }}">
+  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:32px;z-index:1;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 52%,rgba(9,11,15,.34),rgba(9,11,15,.05) 70%,transparent);pointer-events:none;"></div>
+    <div style="position:relative;width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+      <img src="assets/post-logo-transparent.png" alt="Post" style="height:38px;width:auto;margin-bottom:56px;opacity:.92;animation:msw-rise .7s .05s both;">
+
+      <span style="display:inline-block;transform:rotate(55deg);margin:4px 0;"><img src="assets/musawwadah-wordmark.png" alt="مسودة" style="height:220px;width:auto;display:block;animation:msw-rise .7s .12s both;"></span>
+
+      <p style="margin:20px 0 0;font-weight:400;font-size:17px;line-height:1.7;color:rgba(13,17,23,.5);animation:msw-rise .7s .2s both;">قبل أن ترى النور… كانت مسودة.</p>
+
+      <div class="{{ capsuleClass }}" onClick="{{ focusInput }}" onAnimationEnd="{{ onCapsuleAnimEnd }}" style="position:relative;margin-top:56px;width:min(470px,86vw);height:78px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.22);box-shadow:0 12px 40px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.14);backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);display:flex;align-items:center;justify-content:center;gap:22px;cursor:text;direction:ltr;animation:msw-rise .7s .28s both;">
+        <input type="text" inputmode="numeric" autocomplete="one-time-code" aria-label="رمز الدخول" maxlength="6" value="{{ code }}" ref="{{ inputRef }}" onChange="{{ onCodeChange }}" onKeyDown="{{ onCodeKey }}" style="position:absolute;inset:0;width:100%;height:100%;border:none;background:transparent;color:transparent;caret-color:transparent;outline:none;font-size:16px;text-align:center;border-radius:999px;">
+        <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="6">
+          <span class="{{ dot.cls }}" style="width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.16);"></span>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:20px 0 0;font-size:14px;font-weight:500;color:#e0685f;animation:msw-rise .35s both;">الرقم السري غير صحيح، حاول مرة أخرى.</p>
+      </sc-if>
+
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- OCEAN IRAQ PRIVATE PAGE (revealed on code) -->
+  <sc-if value="{{ showPrivate }}" hint-placeholder-val="{{ false }}">
+    <div dir="ltr" style="position:absolute;inset:0;background:#FAF8F5;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:64px 40px;animation:msw-rise .6s both;z-index:2;">
+      <div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+        <div style="position:absolute;top:12%;left:16%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(40,86,255,.16),transparent 70%);"></div>
+        <div style="position:absolute;bottom:8%;right:14%;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,120,.16),transparent 70%);"></div>
+        <div style="position:absolute;top:38%;left:50%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(120,200,190,.14),transparent 70%);"></div>
+      </div>
+      <div class="msw-ex-grid" style="position:relative;width:75%;max-width:1200px;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+
+        <a class="msw-ex" href="{{ cardA.href }}" target="_blank" rel="noopener noreferrer" aria-label="Open Engagement Proposal" style="position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:48px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.7);border-radius:28px;backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 10px 40px rgba(13,17,23,.05);text-decoration:none;">
+          <svg viewBox="0 0 200 200" aria-hidden="true" style="position:absolute;bottom:-20px;right:-20px;width:200px;height:200px;opacity:.05;">
+            <rect x="44" y="20" width="112" height="150" rx="6" fill="none" stroke="#0D1117" stroke-width="2"></rect>
+            <line x1="62" y1="52" x2="138" y2="52" stroke="#0D1117" stroke-width="2"></line>
+            <line x1="62" y1="72" x2="138" y2="72" stroke="#0D1117" stroke-width="2"></line>
+            <line x1="62" y1="92" x2="120" y2="92" stroke="#0D1117" stroke-width="2"></line>
+            <line x1="62" y1="112" x2="138" y2="112" stroke="#0D1117" stroke-width="2"></line>
+            <line x1="62" y1="132" x2="104" y2="132" stroke="#0D1117" stroke-width="2"></line>
+          </svg>
+          <span style="position:relative;font-family:'Tajawal',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,17,23,.42);">Proposal</span>
+          <h2 style="position:relative;margin:auto 0;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(34px,4.2vw,52px);line-height:1.05;letter-spacing:-.01em;color:#1A1A1A;">Engagement Proposal</h2>
+          <span style="position:relative;font-family:'Tajawal',sans-serif;font-size:16px;font-weight:500;color:#2856FF;">Open <span class="msw-exarrow">→</span></span>
+        </a>
+
+        <a class="msw-ex" href="{{ cardB.href }}" target="_blank" rel="noopener noreferrer" aria-label="Open Market Leader Platform" style="position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:400px;padding:48px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.7);border-radius:28px;backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 10px 40px rgba(13,17,23,.05);text-decoration:none;">
+          <svg viewBox="0 0 200 200" aria-hidden="true" style="position:absolute;bottom:-20px;right:-20px;width:200px;height:200px;opacity:.05;">
+            <path d="M-10 150 C40 120 60 170 110 130 S180 90 220 120" fill="none" stroke="#0D1117" stroke-width="2"></path>
+            <path d="M-10 120 C40 90 60 140 110 100 S180 60 220 90" fill="none" stroke="#0D1117" stroke-width="2"></path>
+            <path d="M-10 180 C40 150 60 200 110 160 S180 120 220 150" fill="none" stroke="#0D1117" stroke-width="2"></path>
+            <circle cx="110" cy="130" r="3" fill="#0D1117"></circle>
+            <circle cx="40" cy="137" r="3" fill="#0D1117"></circle>
+          </svg>
+          <span style="position:relative;font-family:'Tajawal',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(13,17,23,.42);">Platform</span>
+          <h2 style="position:relative;margin:auto 0;font-family:'Newsreader',serif;font-weight:500;font-size:clamp(34px,4.2vw,52px);line-height:1.05;letter-spacing:-.01em;color:#1A1A1A;">Market Leader Platform</h2>
+          <span style="position:relative;font-family:'Tajawal',sans-serif;font-size:16px;font-weight:500;color:#2856FF;">Open <span class="msw-exarrow">→</span></span>
+        </a>
+
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- WELCOME (after login) -->
+  <sc-if value="{{ showWelcome }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;background:#F4F3EF;display:flex;flex-direction:column;animation:msw-rise .6s both;">
+      <header style="display:flex;align-items:center;justify-content:space-between;padding:22px 40px;border-bottom:1px solid rgba(13,17,23,.07);background:rgba(244,243,239,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#0D1117;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;">ن</div>
+          <div style="text-align:right;">
+            <div style="font-weight:700;font-size:15px;color:#0D1117;">نـورة للتجارة</div>
+            <div style="font-weight:400;font-size:12px;color:rgba(13,17,23,.4);">آخر تحديث · اليوم ١٠:٤٢ ص</div>
+          </div>
+        </div>
+        <img src="assets/post-logo-transparent.png" alt="Post" style="height:24px;opacity:.85;">
+      </header>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;">
+        <div style="width:60px;height:60px;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(40,86,255,.18),transparent 70%);display:flex;align-items:center;justify-content:center;margin-bottom:28px;animation:msw-breathe 3s ease-in-out infinite;">
+          <div style="width:14px;height:14px;border-radius:50%;background:#2856FF;"></div>
+        </div>
+        <h2 style="margin:0;font-weight:800;font-size:40px;color:#0D1117;letter-spacing:-.01em;">أهلاً بك في مساحتك</h2>
+        <p style="margin:16px 0 0;max-width:440px;font-size:16px;line-height:1.8;color:rgba(13,17,23,.5);">هنا تجد أفكارنا، اقتراحاتنا، دراساتنا، وعروضنا — معروضة لك بهدوء ووضوح. لوحة الاقتراحات والدراسات والعروض جاهزة للبناء في الخطوة القادمة.</p>
+        <button onClick="{{ backHome }}" style="margin-top:32px;height:48px;padding:0 28px;font-family:'Tajawal',sans-serif;font-size:15px;font-weight:600;color:#2856FF;background:transparent;border:1px solid rgba(40,86,255,.3);border-radius:14px;cursor:pointer;transition:background .2s;" style-hover="background:rgba(40,86,255,.06);">خروج</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#2856FF&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Brand&quot;},&quot;engagementProposalUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/engagement-proposal.pdf?v=2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;},&quot;marketLeaderUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://claude.ai/code/artifact/ab6e5fb3-53a9-48b6-b053-282775876dbd&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ocean Iraq Website&quot;}}">
+class Component extends DCLogic {
+  state = {
+    muted: true,
+    code: '',
+    error: false,
+    capAnim: '',        // '' | 'error' | 'success'
+    showWelcome: false,
+    showPrivate: false,
+  };
+
+  pendingDest = null;
+
+  get codeMap(){
+    return this.props.codeMap ?? {
+      '150726': 'Ocean Iraq Marketing Strategy.dc.html',
+    };
+  }
+  // 6-digit code reveals the Ocean Iraq private "Website" page in place.
+  get privateCode(){ return '140726'; }
+  get cardA(){ return { href: this.props.engagementProposalUrl ?? 'assets/engagement-proposal.pdf?v=2' }; }
+  get cardB(){ return { href: this.props.marketLeaderUrl ?? 'https://claude.ai/code/artifact/ab6e5fb3-53a9-48b6-b053-282775876dbd' }; }
+  get accent(){ return this.props.accentColor ?? '#2856FF'; }
+
+  componentDidMount(){
+    setTimeout(() => this.inputEl && this.inputEl.focus(), 400);
+  }
+
+  focusInput = () => { this.inputEl && this.inputEl.focus(); };
+
+  onCodeChange = (e) => {
+    if (this.state.capAnim) return;
+    const code = (e.target.value || '').replace(/\D/g,'').slice(0,6);
+    this.setState({ code, error: false });
+    // auto-submit: a known code matched, or all 6 digits filled
+    if (this.codeMap[code] || code === this.privateCode || code.length === 6){
+      setTimeout(() => this.attempt(code), 120);
+    }
+  };
+
+  onCodeKey = (e) => { if (e.key === 'Enter') this.attempt(this.state.code); };
+
+  onCapsuleAnimEnd = (e) => {
+    if (e && e.target !== e.currentTarget) return;
+    if (this.state.capAnim === 'error') this.finishError();
+    else if (this.state.capAnim === 'success') this.finishSuccess();
+  };
+
+  finishSuccess = () => {
+    if (this._done) return;
+    this._done = true;
+    if (this.pendingDest === '__private'){
+      this.setState({ showPrivate: true, capAnim: '' });
+    } else if (this.pendingDest){
+      window.location.href = this.pendingDest;
+    }
+  };
+
+  finishError = () => {
+    this.setState({ capAnim: '', code: '' });
+    setTimeout(() => this.inputEl && this.inputEl.focus(), 20);
+  };
+
+  attempt = (code) => {
+    if (this.state.capAnim) return;
+    if (code === this.privateCode){
+      this.pendingDest = '__private';
+      this._done = false;
+      this.setState({ capAnim: 'success' });
+      setTimeout(this.finishSuccess, 750);   // fallback if animationend never fires
+    } else if (this.codeMap[code]){
+      this.pendingDest = this.codeMap[code];
+      this._done = false;
+      this.setState({ capAnim: 'success' });
+      setTimeout(this.finishSuccess, 750);
+    } else if (code.length >= 6){
+      this.setState({ error: true, capAnim: 'error' });
+      setTimeout(() => { if (this.state.capAnim === 'error') this.finishError(); }, 650);
+    }
+  };
+
+  backHome = () => this.setState({ showWelcome: false, showPrivate: false, capAnim: '', code: '', error: false });
+
+  renderVals(){
+    const len = this.state.code.length;
+    const dots = Array.from({length:6}, (_, i) => ({
+      cls: 'msw-dot' + (i < len ? ' msw-dot-on' : '') + (i === len ? ' msw-dot-active' : ''),
+    }));
+    const capsuleClass = 'msw-capsule'
+      + (this.state.capAnim === 'error' ? ' msw-cap-error' : '')
+      + (this.state.capAnim === 'success' ? ' msw-cap-success' : '');
+    return {
+      videoRef: el => { this.videoRefEl = el; if (el){ el.muted = true; el.loop = true; const p = el.play(); if (p && p.catch) p.catch(()=>{}); } },
+      inputRef: el => { this.inputEl = el; },
+      code: this.state.code,
+      dots,
+      capsuleClass,
+      focusInput: this.focusInput,
+      onCodeChange: this.onCodeChange,
+      onCodeKey: this.onCodeKey,
+      onCapsuleAnimEnd: this.onCapsuleAnimEnd,
+      error: this.state.error,
+      showWelcome: this.state.showWelcome,
+      showPrivate: this.state.showPrivate,
+      showLogin: !this.state.showPrivate && !this.state.showWelcome,
+      cards: undefined,
+      cardA: this.cardA,
+      cardB: this.cardB,
+      backHome: this.backHome,
+    };
+  }
+}
+</script>
+</body>
+</html>
